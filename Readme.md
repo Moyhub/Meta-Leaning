@@ -14,7 +14,8 @@
 1. Base Model直接迁移。此时如何设置，load support_size=0的正常训练的模型，在测试时也需要设置support size=0（表示不微调）
 2. base Model+Finetune。此时的设置仍然是load support_size=0的正常训练的模型，在测试时设置support size≠0，support size的大小就是选择多少个样本进行微调
 3. 元学习模型+Finetune。此时load support size≠0的元学习模型，在测试时设置support size≠0。
-4. 
+
+
 需要修改什么位置？
 在测试阶段时，需要修改两个位置，一个是load模型的位置，一个是输出结果的位置（需要密切注意）
 
