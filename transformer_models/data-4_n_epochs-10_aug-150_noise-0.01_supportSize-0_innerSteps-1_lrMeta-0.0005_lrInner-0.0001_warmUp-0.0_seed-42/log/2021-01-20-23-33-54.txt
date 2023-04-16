@@ -1,0 +1,538 @@
+2021-01-20 23:33:54:INFO:Finish setting logger...
+2021-01-20 23:33:54:INFO:==> Training/Evaluation parameters are:
+2021-01-20 23:33:54:INFO:	Namespace(activation='relu'
+2021-01-20 23:33:54:INFO:	aug_ratio=150
+2021-01-20 23:33:54:INFO:	d_model=128
+2021-01-20 23:33:54:INFO:	data_fn=4
+2021-01-20 23:33:54:INFO:	device=device(type='cuda')
+2021-01-20 23:33:54:INFO:	dim_feedforward=512
+2021-01-20 23:33:54:INFO:	do_eval=False
+2021-01-20 23:33:54:INFO:	do_train=False
+2021-01-20 23:33:54:INFO:	e_dropout=0.1
+2021-01-20 23:33:54:INFO:	eval_batch_size=1
+2021-01-20 23:33:54:INFO:	filter_kernel_size=1
+2021-01-20 23:33:54:INFO:	gpu_id=0
+2021-01-20 23:33:54:INFO:	high_ratio=0.99
+2021-01-20 23:33:54:INFO:	inner_steps=1
+2021-01-20 23:33:54:INFO:	layer_norm=False
+2021-01-20 23:33:54:INFO:	logging_steps=50
+2021-01-20 23:33:54:INFO:	low_ratio=0.1
+2021-01-20 23:33:54:INFO:	lr=0.001
+2021-01-20 23:33:54:INFO:	lr_inner=0.0001
+2021-01-20 23:33:54:INFO:	lr_meta=0.0005
+2021-01-20 23:33:54:INFO:	maxRUL=125
+2021-01-20 23:33:54:INFO:	max_grad_norm=1.0
+2021-01-20 23:33:54:INFO:	max_seq_len=550
+2021-01-20 23:33:54:INFO:	model_dir='models/data-4_n_epochs-10_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.0005_lrInner-0.0001_warmUp-0.0_seed-42'
+2021-01-20 23:33:54:INFO:	n_epochs=10
+2021-01-20 23:33:54:INFO:	n_head=4
+2021-01-20 23:33:54:INFO:	n_layer=2
+2021-01-20 23:33:54:INFO:	noise_amplitude=0.01
+2021-01-20 23:33:54:INFO:	override_data_cache=False
+2021-01-20 23:33:54:INFO:	p_dropout=0.1
+2021-01-20 23:33:54:INFO:	seed=42
+2021-01-20 23:33:54:INFO:	support_size=0
+2021-01-20 23:33:54:INFO:	target_ruls_fn='data/RUL_FD004.txt'
+2021-01-20 23:33:54:INFO:	test_data_fn='data/test_FD004.txt'
+2021-01-20 23:33:54:INFO:	train_batch_size=20
+2021-01-20 23:33:54:INFO:	train_data_fn='data/train_FD004.txt'
+2021-01-20 23:33:54:INFO:	warmup_ratio=0.0
+2021-01-20 23:33:54:INFO:	weight_decay=0.01)
+2021-01-20 23:33:54:INFO:Dump arguments to models/data-4_n_epochs-10_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.0005_lrInner-0.0001_warmUp-0.0_seed-42...
+2021-01-20 23:33:54:INFO:==> Read data from data/train_FD004.txt...
+2021-01-20 23:33:54:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2021-01-20 23:33:55:INFO:==> Min_max normalization...
+2021-01-20 23:33:55:INFO:	The min value is [0.0, 0.0, 535.47998046875, 1242.6700439453125, 1024.4200439453125, 136.1699981689453, 1914.719970703125, 7984.509765625, 36.040000915527344, 128.30999755859375, 2027.5699462890625, 7845.77978515625, 8.175700187683105, 302.0, 10.15999984741211, 6.0843000411987305]
+2021-01-20 23:33:55:INFO:	The max value is [42.007999420166016, 0.8420000076293945, 644.4199829101562, 1613.0, 1440.77001953125, 570.8099975585938, 2388.639892578125, 9196.8095703125, 48.36000061035156, 537.489990234375, 2390.489990234375, 8261.650390625, 11.066300392150879, 399.0, 39.88999938964844, 23.88520050048828]
+2021-01-20 23:33:55:INFO:==> Read data from data/test_FD004.txt...
+2021-01-20 23:33:55:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2021-01-20 23:33:55:INFO:==> Read RULsfrom data/RUL_FD004.txt...
+2021-01-20 23:33:55:INFO:	min_rul: 6, max_rul: 195
+2021-01-20 23:33:55:INFO:==> Input length ratio of the [TEST] data:
+2021-01-20 23:33:55:INFO:	min_ratio = 0.1024
+2021-01-20 23:33:55:INFO:	max_ratio = 0.9842
+2021-01-20 23:33:55:INFO:==> Min_max normalization...
+2021-01-20 23:33:55:INFO:	With given min value [0.0, 0.0, 535.47998046875, 1242.6700439453125, 1024.4200439453125, 136.1699981689453, 1914.719970703125, 7984.509765625, 36.040000915527344, 128.30999755859375, 2027.5699462890625, 7845.77978515625, 8.175700187683105, 302.0, 10.15999984741211, 6.0843000411987305]
+2021-01-20 23:33:55:INFO:	With given max value [42.007999420166016, 0.8420000076293945, 644.4199829101562, 1613.0, 1440.77001953125, 570.8099975585938, 2388.639892578125, 9196.8095703125, 48.36000061035156, 537.489990234375, 2390.489990234375, 8261.650390625, 11.066300392150879, 399.0, 39.88999938964844, 23.88520050048828]
+2021-01-20 23:34:01:INFO:=============== Scheme: Normal Learning ===============
+2021-01-20 23:34:01:INFO:	Num examples = 37350
+2021-01-20 23:34:01:INFO:	Num epochs = 10
+2021-01-20 23:34:01:INFO:	Batch size = 20
+2021-01-20 23:34:01:INFO:	Total optimization steps = 18675
+2021-01-20 23:34:05:INFO:==> Group parameters for optimization...
+2021-01-20 23:34:05:INFO:    Parameters to update are:
+2021-01-20 23:34:05:INFO:	embed.mapping.weight
+2021-01-20 23:34:05:INFO:	embed.mapping.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.0.self_attn.in_proj_weight
+2021-01-20 23:34:05:INFO:	encoder.layers.0.self_attn.in_proj_bias
+2021-01-20 23:34:05:INFO:	encoder.layers.0.self_attn.out_proj.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.0.self_attn.out_proj.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.0.linear1.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.0.linear1.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.0.linear2.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.0.linear2.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.0.norm1.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.0.norm1.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.0.norm2.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.0.norm2.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.1.self_attn.in_proj_weight
+2021-01-20 23:34:05:INFO:	encoder.layers.1.self_attn.in_proj_bias
+2021-01-20 23:34:05:INFO:	encoder.layers.1.self_attn.out_proj.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.1.self_attn.out_proj.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.1.linear1.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.1.linear1.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.1.linear2.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.1.linear2.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.1.norm1.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.1.norm1.bias
+2021-01-20 23:34:05:INFO:	encoder.layers.1.norm2.weight
+2021-01-20 23:34:05:INFO:	encoder.layers.1.norm2.bias
+2021-01-20 23:34:05:INFO:	projection.weight
+2021-01-20 23:34:05:INFO:	projection.bias
+2021-01-20 23:34:06:INFO:Epoch: 0	 global_step: 0/18675	 lr: 0.00050	 loss: 0.0025
+2021-01-20 23:34:07:INFO:Epoch: 0	 global_step: 50/18675	 lr: 0.00050	 loss: 0.0186
+2021-01-20 23:34:08:INFO:Epoch: 0	 global_step: 100/18675	 lr: 0.00050	 loss: 0.0121
+2021-01-20 23:34:09:INFO:Epoch: 0	 global_step: 150/18675	 lr: 0.00050	 loss: 0.0108
+2021-01-20 23:34:11:INFO:Epoch: 0	 global_step: 200/18675	 lr: 0.00049	 loss: 0.0105
+2021-01-20 23:34:12:INFO:Epoch: 0	 global_step: 250/18675	 lr: 0.00049	 loss: 0.0107
+2021-01-20 23:34:13:INFO:Epoch: 0	 global_step: 300/18675	 lr: 0.00049	 loss: 0.0105
+2021-01-20 23:34:14:INFO:Epoch: 0	 global_step: 350/18675	 lr: 0.00049	 loss: 0.0102
+2021-01-20 23:34:16:INFO:Epoch: 0	 global_step: 400/18675	 lr: 0.00049	 loss: 0.0110
+2021-01-20 23:34:17:INFO:Epoch: 0	 global_step: 450/18675	 lr: 0.00049	 loss: 0.0100
+2021-01-20 23:34:18:INFO:Epoch: 0	 global_step: 500/18675	 lr: 0.00049	 loss: 0.0101
+2021-01-20 23:34:19:INFO:Epoch: 0	 global_step: 550/18675	 lr: 0.00049	 loss: 0.0098
+2021-01-20 23:34:20:INFO:Epoch: 0	 global_step: 600/18675	 lr: 0.00048	 loss: 0.0109
+2021-01-20 23:34:22:INFO:Epoch: 0	 global_step: 650/18675	 lr: 0.00048	 loss: 0.0095
+2021-01-20 23:34:23:INFO:Epoch: 0	 global_step: 700/18675	 lr: 0.00048	 loss: 0.0096
+2021-01-20 23:34:24:INFO:Epoch: 0	 global_step: 750/18675	 lr: 0.00048	 loss: 0.0096
+2021-01-20 23:34:25:INFO:Epoch: 0	 global_step: 800/18675	 lr: 0.00048	 loss: 0.0102
+2021-01-20 23:34:26:INFO:Epoch: 0	 global_step: 850/18675	 lr: 0.00048	 loss: 0.0089
+2021-01-20 23:34:28:INFO:Epoch: 0	 global_step: 900/18675	 lr: 0.00048	 loss: 0.0096
+2021-01-20 23:34:29:INFO:Epoch: 0	 global_step: 950/18675	 lr: 0.00047	 loss: 0.0091
+2021-01-20 23:34:30:INFO:Epoch: 0	 global_step: 1000/18675	 lr: 0.00047	 loss: 0.0092
+2021-01-20 23:34:31:INFO:Epoch: 0	 global_step: 1050/18675	 lr: 0.00047	 loss: 0.0091
+2021-01-20 23:34:33:INFO:Epoch: 0	 global_step: 1100/18675	 lr: 0.00047	 loss: 0.0096
+2021-01-20 23:34:34:INFO:Epoch: 0	 global_step: 1150/18675	 lr: 0.00047	 loss: 0.0091
+2021-01-20 23:34:35:INFO:Epoch: 0	 global_step: 1200/18675	 lr: 0.00047	 loss: 0.0092
+2021-01-20 23:34:36:INFO:Epoch: 0	 global_step: 1250/18675	 lr: 0.00047	 loss: 0.0095
+2021-01-20 23:34:37:INFO:Epoch: 0	 global_step: 1300/18675	 lr: 0.00047	 loss: 0.0105
+2021-01-20 23:34:39:INFO:Epoch: 0	 global_step: 1350/18675	 lr: 0.00046	 loss: 0.0083
+2021-01-20 23:34:40:INFO:Epoch: 0	 global_step: 1400/18675	 lr: 0.00046	 loss: 0.0091
+2021-01-20 23:34:41:INFO:Epoch: 0	 global_step: 1450/18675	 lr: 0.00046	 loss: 0.0088
+2021-01-20 23:34:42:INFO:Epoch: 0	 global_step: 1500/18675	 lr: 0.00046	 loss: 0.0090
+2021-01-20 23:34:43:INFO:Epoch: 0	 global_step: 1550/18675	 lr: 0.00046	 loss: 0.0080
+2021-01-20 23:34:45:INFO:Epoch: 0	 global_step: 1600/18675	 lr: 0.00046	 loss: 0.0076
+2021-01-20 23:34:46:INFO:Epoch: 0	 global_step: 1650/18675	 lr: 0.00046	 loss: 0.0093
+2021-01-20 23:34:47:INFO:Epoch: 0	 global_step: 1700/18675	 lr: 0.00045	 loss: 0.0080
+2021-01-20 23:34:48:INFO:Epoch: 0	 global_step: 1750/18675	 lr: 0.00045	 loss: 0.0094
+2021-01-20 23:34:50:INFO:Epoch: 0	 global_step: 1800/18675	 lr: 0.00045	 loss: 0.0086
+2021-01-20 23:34:51:INFO:Epoch: 0	 global_step: 1850/18675	 lr: 0.00045	 loss: 0.0093
+2021-01-20 23:34:52:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:34:52:INFO:	Num examples = 248
+2021-01-20 23:34:52:INFO:	RMSE = 46.6799
+2021-01-20 23:34:52:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:34:52:INFO:	Num examples = 249
+2021-01-20 23:34:52:INFO:	RMSE = 58.6379
+2021-01-20 23:34:52:INFO:==> Minimal valid RMSE!
+2021-01-20 23:34:52:INFO:Save model to models/data-4_n_epochs-10_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.0005_lrInner-0.0001_warmUp-0.0_seed-42...
+2021-01-20 23:34:53:INFO:Epoch: 1	 global_step: 1900/18675	 lr: 0.00045	 loss: 0.0081
+2021-01-20 23:34:54:INFO:Epoch: 1	 global_step: 1950/18675	 lr: 0.00045	 loss: 0.0078
+2021-01-20 23:34:56:INFO:Epoch: 1	 global_step: 2000/18675	 lr: 0.00045	 loss: 0.0084
+2021-01-20 23:34:57:INFO:Epoch: 1	 global_step: 2050/18675	 lr: 0.00045	 loss: 0.0080
+2021-01-20 23:34:58:INFO:Epoch: 1	 global_step: 2100/18675	 lr: 0.00044	 loss: 0.0074
+2021-01-20 23:34:59:INFO:Epoch: 1	 global_step: 2150/18675	 lr: 0.00044	 loss: 0.0085
+2021-01-20 23:35:00:INFO:Epoch: 1	 global_step: 2200/18675	 lr: 0.00044	 loss: 0.0074
+2021-01-20 23:35:02:INFO:Epoch: 1	 global_step: 2250/18675	 lr: 0.00044	 loss: 0.0074
+2021-01-20 23:35:03:INFO:Epoch: 1	 global_step: 2300/18675	 lr: 0.00044	 loss: 0.0082
+2021-01-20 23:35:04:INFO:Epoch: 1	 global_step: 2350/18675	 lr: 0.00044	 loss: 0.0076
+2021-01-20 23:35:05:INFO:Epoch: 1	 global_step: 2400/18675	 lr: 0.00044	 loss: 0.0068
+2021-01-20 23:35:06:INFO:Epoch: 1	 global_step: 2450/18675	 lr: 0.00043	 loss: 0.0075
+2021-01-20 23:35:08:INFO:Epoch: 1	 global_step: 2500/18675	 lr: 0.00043	 loss: 0.0074
+2021-01-20 23:35:09:INFO:Epoch: 1	 global_step: 2550/18675	 lr: 0.00043	 loss: 0.0065
+2021-01-20 23:35:10:INFO:Epoch: 1	 global_step: 2600/18675	 lr: 0.00043	 loss: 0.0069
+2021-01-20 23:35:11:INFO:Epoch: 1	 global_step: 2650/18675	 lr: 0.00043	 loss: 0.0074
+2021-01-20 23:35:13:INFO:Epoch: 1	 global_step: 2700/18675	 lr: 0.00043	 loss: 0.0070
+2021-01-20 23:35:14:INFO:Epoch: 1	 global_step: 2750/18675	 lr: 0.00043	 loss: 0.0064
+2021-01-20 23:35:15:INFO:Epoch: 1	 global_step: 2800/18675	 lr: 0.00043	 loss: 0.0065
+2021-01-20 23:35:16:INFO:Epoch: 1	 global_step: 2850/18675	 lr: 0.00042	 loss: 0.0072
+2021-01-20 23:35:17:INFO:Epoch: 1	 global_step: 2900/18675	 lr: 0.00042	 loss: 0.0055
+2021-01-20 23:35:19:INFO:Epoch: 1	 global_step: 2950/18675	 lr: 0.00042	 loss: 0.0059
+2021-01-20 23:35:20:INFO:Epoch: 1	 global_step: 3000/18675	 lr: 0.00042	 loss: 0.0062
+2021-01-20 23:35:21:INFO:Epoch: 1	 global_step: 3050/18675	 lr: 0.00042	 loss: 0.0058
+2021-01-20 23:35:22:INFO:Epoch: 1	 global_step: 3100/18675	 lr: 0.00042	 loss: 0.0063
+2021-01-20 23:35:23:INFO:Epoch: 1	 global_step: 3150/18675	 lr: 0.00042	 loss: 0.0073
+2021-01-20 23:35:25:INFO:Epoch: 1	 global_step: 3200/18675	 lr: 0.00041	 loss: 0.0060
+2021-01-20 23:35:26:INFO:Epoch: 1	 global_step: 3250/18675	 lr: 0.00041	 loss: 0.0055
+2021-01-20 23:35:27:INFO:Epoch: 1	 global_step: 3300/18675	 lr: 0.00041	 loss: 0.0054
+2021-01-20 23:35:28:INFO:Epoch: 1	 global_step: 3350/18675	 lr: 0.00041	 loss: 0.0065
+2021-01-20 23:35:29:INFO:Epoch: 1	 global_step: 3400/18675	 lr: 0.00041	 loss: 0.0058
+2021-01-20 23:35:31:INFO:Epoch: 1	 global_step: 3450/18675	 lr: 0.00041	 loss: 0.0049
+2021-01-20 23:35:32:INFO:Epoch: 1	 global_step: 3500/18675	 lr: 0.00041	 loss: 0.0058
+2021-01-20 23:35:33:INFO:Epoch: 1	 global_step: 3550/18675	 lr: 0.00040	 loss: 0.0058
+2021-01-20 23:35:34:INFO:Epoch: 1	 global_step: 3600/18675	 lr: 0.00040	 loss: 0.0057
+2021-01-20 23:35:35:INFO:Epoch: 1	 global_step: 3650/18675	 lr: 0.00040	 loss: 0.0059
+2021-01-20 23:35:37:INFO:Epoch: 1	 global_step: 3700/18675	 lr: 0.00040	 loss: 0.0061
+2021-01-20 23:35:38:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:35:38:INFO:	Num examples = 248
+2021-01-20 23:35:38:INFO:	RMSE = 41.2591
+2021-01-20 23:35:39:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:35:39:INFO:	Num examples = 249
+2021-01-20 23:35:39:INFO:	RMSE = 50.6014
+2021-01-20 23:35:39:INFO:==> Minimal valid RMSE!
+2021-01-20 23:35:39:INFO:Save model to models/data-4_n_epochs-10_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.0005_lrInner-0.0001_warmUp-0.0_seed-42...
+2021-01-20 23:35:39:INFO:Epoch: 2	 global_step: 3750/18675	 lr: 0.00040	 loss: 0.0052
+2021-01-20 23:35:40:INFO:Epoch: 2	 global_step: 3800/18675	 lr: 0.00040	 loss: 0.0055
+2021-01-20 23:35:41:INFO:Epoch: 2	 global_step: 3850/18675	 lr: 0.00040	 loss: 0.0057
+2021-01-20 23:35:43:INFO:Epoch: 2	 global_step: 3900/18675	 lr: 0.00040	 loss: 0.0059
+2021-01-20 23:35:44:INFO:Epoch: 2	 global_step: 3950/18675	 lr: 0.00039	 loss: 0.0055
+2021-01-20 23:35:45:INFO:Epoch: 2	 global_step: 4000/18675	 lr: 0.00039	 loss: 0.0053
+2021-01-20 23:35:46:INFO:Epoch: 2	 global_step: 4050/18675	 lr: 0.00039	 loss: 0.0057
+2021-01-20 23:35:48:INFO:Epoch: 2	 global_step: 4100/18675	 lr: 0.00039	 loss: 0.0058
+2021-01-20 23:35:49:INFO:Epoch: 2	 global_step: 4150/18675	 lr: 0.00039	 loss: 0.0052
+2021-01-20 23:35:50:INFO:Epoch: 2	 global_step: 4200/18675	 lr: 0.00039	 loss: 0.0052
+2021-01-20 23:35:51:INFO:Epoch: 2	 global_step: 4250/18675	 lr: 0.00039	 loss: 0.0055
+2021-01-20 23:35:52:INFO:Epoch: 2	 global_step: 4300/18675	 lr: 0.00038	 loss: 0.0048
+2021-01-20 23:35:54:INFO:Epoch: 2	 global_step: 4350/18675	 lr: 0.00038	 loss: 0.0045
+2021-01-20 23:35:55:INFO:Epoch: 2	 global_step: 4400/18675	 lr: 0.00038	 loss: 0.0054
+2021-01-20 23:35:56:INFO:Epoch: 2	 global_step: 4450/18675	 lr: 0.00038	 loss: 0.0057
+2021-01-20 23:35:57:INFO:Epoch: 2	 global_step: 4500/18675	 lr: 0.00038	 loss: 0.0050
+2021-01-20 23:35:58:INFO:Epoch: 2	 global_step: 4550/18675	 lr: 0.00038	 loss: 0.0048
+2021-01-20 23:36:00:INFO:Epoch: 2	 global_step: 4600/18675	 lr: 0.00038	 loss: 0.0048
+2021-01-20 23:36:01:INFO:Epoch: 2	 global_step: 4650/18675	 lr: 0.00038	 loss: 0.0049
+2021-01-20 23:36:02:INFO:Epoch: 2	 global_step: 4700/18675	 lr: 0.00037	 loss: 0.0049
+2021-01-20 23:36:03:INFO:Epoch: 2	 global_step: 4750/18675	 lr: 0.00037	 loss: 0.0050
+2021-01-20 23:36:04:INFO:Epoch: 2	 global_step: 4800/18675	 lr: 0.00037	 loss: 0.0044
+2021-01-20 23:36:06:INFO:Epoch: 2	 global_step: 4850/18675	 lr: 0.00037	 loss: 0.0050
+2021-01-20 23:36:07:INFO:Epoch: 2	 global_step: 4900/18675	 lr: 0.00037	 loss: 0.0049
+2021-01-20 23:36:08:INFO:Epoch: 2	 global_step: 4950/18675	 lr: 0.00037	 loss: 0.0053
+2021-01-20 23:36:09:INFO:Epoch: 2	 global_step: 5000/18675	 lr: 0.00037	 loss: 0.0046
+2021-01-20 23:36:11:INFO:Epoch: 2	 global_step: 5050/18675	 lr: 0.00036	 loss: 0.0046
+2021-01-20 23:36:12:INFO:Epoch: 2	 global_step: 5100/18675	 lr: 0.00036	 loss: 0.0038
+2021-01-20 23:36:13:INFO:Epoch: 2	 global_step: 5150/18675	 lr: 0.00036	 loss: 0.0045
+2021-01-20 23:36:14:INFO:Epoch: 2	 global_step: 5200/18675	 lr: 0.00036	 loss: 0.0042
+2021-01-20 23:36:15:INFO:Epoch: 2	 global_step: 5250/18675	 lr: 0.00036	 loss: 0.0052
+2021-01-20 23:36:17:INFO:Epoch: 2	 global_step: 5300/18675	 lr: 0.00036	 loss: 0.0043
+2021-01-20 23:36:18:INFO:Epoch: 2	 global_step: 5350/18675	 lr: 0.00036	 loss: 0.0050
+2021-01-20 23:36:19:INFO:Epoch: 2	 global_step: 5400/18675	 lr: 0.00036	 loss: 0.0044
+2021-01-20 23:36:20:INFO:Epoch: 2	 global_step: 5450/18675	 lr: 0.00035	 loss: 0.0047
+2021-01-20 23:36:21:INFO:Epoch: 2	 global_step: 5500/18675	 lr: 0.00035	 loss: 0.0043
+2021-01-20 23:36:23:INFO:Epoch: 2	 global_step: 5550/18675	 lr: 0.00035	 loss: 0.0046
+2021-01-20 23:36:24:INFO:Epoch: 2	 global_step: 5600/18675	 lr: 0.00035	 loss: 0.0048
+2021-01-20 23:36:24:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:36:24:INFO:	Num examples = 248
+2021-01-20 23:36:24:INFO:	RMSE = 43.2612
+2021-01-20 23:36:25:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:36:25:INFO:	Num examples = 249
+2021-01-20 23:36:25:INFO:	RMSE = 55.2515
+2021-01-20 23:36:26:INFO:Epoch: 3	 global_step: 5650/18675	 lr: 0.00035	 loss: 0.0043
+2021-01-20 23:36:27:INFO:Epoch: 3	 global_step: 5700/18675	 lr: 0.00035	 loss: 0.0039
+2021-01-20 23:36:29:INFO:Epoch: 3	 global_step: 5750/18675	 lr: 0.00035	 loss: 0.0043
+2021-01-20 23:36:30:INFO:Epoch: 3	 global_step: 5800/18675	 lr: 0.00034	 loss: 0.0049
+2021-01-20 23:36:31:INFO:Epoch: 3	 global_step: 5850/18675	 lr: 0.00034	 loss: 0.0039
+2021-01-20 23:36:32:INFO:Epoch: 3	 global_step: 5900/18675	 lr: 0.00034	 loss: 0.0046
+2021-01-20 23:36:33:INFO:Epoch: 3	 global_step: 5950/18675	 lr: 0.00034	 loss: 0.0040
+2021-01-20 23:36:35:INFO:Epoch: 3	 global_step: 6000/18675	 lr: 0.00034	 loss: 0.0044
+2021-01-20 23:36:36:INFO:Epoch: 3	 global_step: 6050/18675	 lr: 0.00034	 loss: 0.0045
+2021-01-20 23:36:37:INFO:Epoch: 3	 global_step: 6100/18675	 lr: 0.00034	 loss: 0.0040
+2021-01-20 23:36:38:INFO:Epoch: 3	 global_step: 6150/18675	 lr: 0.00034	 loss: 0.0041
+2021-01-20 23:36:39:INFO:Epoch: 3	 global_step: 6200/18675	 lr: 0.00033	 loss: 0.0042
+2021-01-20 23:36:41:INFO:Epoch: 3	 global_step: 6250/18675	 lr: 0.00033	 loss: 0.0045
+2021-01-20 23:36:42:INFO:Epoch: 3	 global_step: 6300/18675	 lr: 0.00033	 loss: 0.0041
+2021-01-20 23:36:43:INFO:Epoch: 3	 global_step: 6350/18675	 lr: 0.00033	 loss: 0.0038
+2021-01-20 23:36:44:INFO:Epoch: 3	 global_step: 6400/18675	 lr: 0.00033	 loss: 0.0044
+2021-01-20 23:36:46:INFO:Epoch: 3	 global_step: 6450/18675	 lr: 0.00033	 loss: 0.0040
+2021-01-20 23:36:47:INFO:Epoch: 3	 global_step: 6500/18675	 lr: 0.00033	 loss: 0.0045
+2021-01-20 23:36:48:INFO:Epoch: 3	 global_step: 6550/18675	 lr: 0.00032	 loss: 0.0039
+2021-01-20 23:36:49:INFO:Epoch: 3	 global_step: 6600/18675	 lr: 0.00032	 loss: 0.0037
+2021-01-20 23:36:50:INFO:Epoch: 3	 global_step: 6650/18675	 lr: 0.00032	 loss: 0.0038
+2021-01-20 23:36:52:INFO:Epoch: 3	 global_step: 6700/18675	 lr: 0.00032	 loss: 0.0040
+2021-01-20 23:36:53:INFO:Epoch: 3	 global_step: 6750/18675	 lr: 0.00032	 loss: 0.0039
+2021-01-20 23:36:54:INFO:Epoch: 3	 global_step: 6800/18675	 lr: 0.00032	 loss: 0.0041
+2021-01-20 23:36:55:INFO:Epoch: 3	 global_step: 6850/18675	 lr: 0.00032	 loss: 0.0039
+2021-01-20 23:36:56:INFO:Epoch: 3	 global_step: 6900/18675	 lr: 0.00032	 loss: 0.0044
+2021-01-20 23:36:58:INFO:Epoch: 3	 global_step: 6950/18675	 lr: 0.00031	 loss: 0.0038
+2021-01-20 23:36:59:INFO:Epoch: 3	 global_step: 7000/18675	 lr: 0.00031	 loss: 0.0038
+2021-01-20 23:37:00:INFO:Epoch: 3	 global_step: 7050/18675	 lr: 0.00031	 loss: 0.0038
+2021-01-20 23:37:01:INFO:Epoch: 3	 global_step: 7100/18675	 lr: 0.00031	 loss: 0.0038
+2021-01-20 23:37:02:INFO:Epoch: 3	 global_step: 7150/18675	 lr: 0.00031	 loss: 0.0039
+2021-01-20 23:37:04:INFO:Epoch: 3	 global_step: 7200/18675	 lr: 0.00031	 loss: 0.0042
+2021-01-20 23:37:05:INFO:Epoch: 3	 global_step: 7250/18675	 lr: 0.00031	 loss: 0.0039
+2021-01-20 23:37:06:INFO:Epoch: 3	 global_step: 7300/18675	 lr: 0.00030	 loss: 0.0030
+2021-01-20 23:37:07:INFO:Epoch: 3	 global_step: 7350/18675	 lr: 0.00030	 loss: 0.0035
+2021-01-20 23:37:09:INFO:Epoch: 3	 global_step: 7400/18675	 lr: 0.00030	 loss: 0.0037
+2021-01-20 23:37:10:INFO:Epoch: 3	 global_step: 7450/18675	 lr: 0.00030	 loss: 0.0037
+2021-01-20 23:37:11:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:37:11:INFO:	Num examples = 248
+2021-01-20 23:37:11:INFO:	RMSE = 42.1322
+2021-01-20 23:37:11:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:37:11:INFO:	Num examples = 249
+2021-01-20 23:37:11:INFO:	RMSE = 52.7629
+2021-01-20 23:37:12:INFO:Epoch: 4	 global_step: 7500/18675	 lr: 0.00030	 loss: 0.0033
+2021-01-20 23:37:13:INFO:Epoch: 4	 global_step: 7550/18675	 lr: 0.00030	 loss: 0.0033
+2021-01-20 23:37:15:INFO:Epoch: 4	 global_step: 7600/18675	 lr: 0.00030	 loss: 0.0030
+2021-01-20 23:37:16:INFO:Epoch: 4	 global_step: 7650/18675	 lr: 0.00030	 loss: 0.0039
+2021-01-20 23:37:17:INFO:Epoch: 4	 global_step: 7700/18675	 lr: 0.00029	 loss: 0.0032
+2021-01-20 23:37:18:INFO:Epoch: 4	 global_step: 7750/18675	 lr: 0.00029	 loss: 0.0038
+2021-01-20 23:37:19:INFO:Epoch: 4	 global_step: 7800/18675	 lr: 0.00029	 loss: 0.0032
+2021-01-20 23:37:21:INFO:Epoch: 4	 global_step: 7850/18675	 lr: 0.00029	 loss: 0.0036
+2021-01-20 23:37:22:INFO:Epoch: 4	 global_step: 7900/18675	 lr: 0.00029	 loss: 0.0036
+2021-01-20 23:37:23:INFO:Epoch: 4	 global_step: 7950/18675	 lr: 0.00029	 loss: 0.0037
+2021-01-20 23:37:24:INFO:Epoch: 4	 global_step: 8000/18675	 lr: 0.00029	 loss: 0.0035
+2021-01-20 23:37:25:INFO:Epoch: 4	 global_step: 8050/18675	 lr: 0.00028	 loss: 0.0035
+2021-01-20 23:37:27:INFO:Epoch: 4	 global_step: 8100/18675	 lr: 0.00028	 loss: 0.0040
+2021-01-20 23:37:28:INFO:Epoch: 4	 global_step: 8150/18675	 lr: 0.00028	 loss: 0.0036
+2021-01-20 23:37:29:INFO:Epoch: 4	 global_step: 8200/18675	 lr: 0.00028	 loss: 0.0032
+2021-01-20 23:37:30:INFO:Epoch: 4	 global_step: 8250/18675	 lr: 0.00028	 loss: 0.0031
+2021-01-20 23:37:31:INFO:Epoch: 4	 global_step: 8300/18675	 lr: 0.00028	 loss: 0.0033
+2021-01-20 23:37:33:INFO:Epoch: 4	 global_step: 8350/18675	 lr: 0.00028	 loss: 0.0031
+2021-01-20 23:37:34:INFO:Epoch: 4	 global_step: 8400/18675	 lr: 0.00028	 loss: 0.0029
+2021-01-20 23:37:35:INFO:Epoch: 4	 global_step: 8450/18675	 lr: 0.00027	 loss: 0.0036
+2021-01-20 23:37:36:INFO:Epoch: 4	 global_step: 8500/18675	 lr: 0.00027	 loss: 0.0038
+2021-01-20 23:37:37:INFO:Epoch: 4	 global_step: 8550/18675	 lr: 0.00027	 loss: 0.0030
+2021-01-20 23:37:39:INFO:Epoch: 4	 global_step: 8600/18675	 lr: 0.00027	 loss: 0.0036
+2021-01-20 23:37:40:INFO:Epoch: 4	 global_step: 8650/18675	 lr: 0.00027	 loss: 0.0029
+2021-01-20 23:37:41:INFO:Epoch: 4	 global_step: 8700/18675	 lr: 0.00027	 loss: 0.0035
+2021-01-20 23:37:42:INFO:Epoch: 4	 global_step: 8750/18675	 lr: 0.00027	 loss: 0.0032
+2021-01-20 23:37:43:INFO:Epoch: 4	 global_step: 8800/18675	 lr: 0.00026	 loss: 0.0031
+2021-01-20 23:37:45:INFO:Epoch: 4	 global_step: 8850/18675	 lr: 0.00026	 loss: 0.0033
+2021-01-20 23:37:46:INFO:Epoch: 4	 global_step: 8900/18675	 lr: 0.00026	 loss: 0.0038
+2021-01-20 23:37:47:INFO:Epoch: 4	 global_step: 8950/18675	 lr: 0.00026	 loss: 0.0033
+2021-01-20 23:37:48:INFO:Epoch: 4	 global_step: 9000/18675	 lr: 0.00026	 loss: 0.0030
+2021-01-20 23:37:49:INFO:Epoch: 4	 global_step: 9050/18675	 lr: 0.00026	 loss: 0.0032
+2021-01-20 23:37:51:INFO:Epoch: 4	 global_step: 9100/18675	 lr: 0.00026	 loss: 0.0029
+2021-01-20 23:37:52:INFO:Epoch: 4	 global_step: 9150/18675	 lr: 0.00025	 loss: 0.0029
+2021-01-20 23:37:53:INFO:Epoch: 4	 global_step: 9200/18675	 lr: 0.00025	 loss: 0.0031
+2021-01-20 23:37:54:INFO:Epoch: 4	 global_step: 9250/18675	 lr: 0.00025	 loss: 0.0036
+2021-01-20 23:37:55:INFO:Epoch: 4	 global_step: 9300/18675	 lr: 0.00025	 loss: 0.0031
+2021-01-20 23:37:57:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:37:57:INFO:	Num examples = 248
+2021-01-20 23:37:57:INFO:	RMSE = 38.7944
+2021-01-20 23:37:57:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:37:57:INFO:	Num examples = 249
+2021-01-20 23:37:57:INFO:	RMSE = 48.7096
+2021-01-20 23:37:57:INFO:==> Minimal valid RMSE!
+2021-01-20 23:37:57:INFO:Save model to models/data-4_n_epochs-10_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.0005_lrInner-0.0001_warmUp-0.0_seed-42...
+2021-01-20 23:37:58:INFO:Epoch: 5	 global_step: 9350/18675	 lr: 0.00025	 loss: 0.0031
+2021-01-20 23:37:59:INFO:Epoch: 5	 global_step: 9400/18675	 lr: 0.00025	 loss: 0.0027
+2021-01-20 23:38:00:INFO:Epoch: 5	 global_step: 9450/18675	 lr: 0.00025	 loss: 0.0031
+2021-01-20 23:38:01:INFO:Epoch: 5	 global_step: 9500/18675	 lr: 0.00025	 loss: 0.0028
+2021-01-20 23:38:03:INFO:Epoch: 5	 global_step: 9550/18675	 lr: 0.00024	 loss: 0.0029
+2021-01-20 23:38:04:INFO:Epoch: 5	 global_step: 9600/18675	 lr: 0.00024	 loss: 0.0029
+2021-01-20 23:38:05:INFO:Epoch: 5	 global_step: 9650/18675	 lr: 0.00024	 loss: 0.0031
+2021-01-20 23:38:06:INFO:Epoch: 5	 global_step: 9700/18675	 lr: 0.00024	 loss: 0.0033
+2021-01-20 23:38:07:INFO:Epoch: 5	 global_step: 9750/18675	 lr: 0.00024	 loss: 0.0027
+2021-01-20 23:38:09:INFO:Epoch: 5	 global_step: 9800/18675	 lr: 0.00024	 loss: 0.0028
+2021-01-20 23:38:10:INFO:Epoch: 5	 global_step: 9850/18675	 lr: 0.00024	 loss: 0.0025
+2021-01-20 23:38:11:INFO:Epoch: 5	 global_step: 9900/18675	 lr: 0.00023	 loss: 0.0027
+2021-01-20 23:38:12:INFO:Epoch: 5	 global_step: 9950/18675	 lr: 0.00023	 loss: 0.0026
+2021-01-20 23:38:13:INFO:Epoch: 5	 global_step: 10000/18675	 lr: 0.00023	 loss: 0.0027
+2021-01-20 23:38:15:INFO:Epoch: 5	 global_step: 10050/18675	 lr: 0.00023	 loss: 0.0026
+2021-01-20 23:38:16:INFO:Epoch: 5	 global_step: 10100/18675	 lr: 0.00023	 loss: 0.0029
+2021-01-20 23:38:17:INFO:Epoch: 5	 global_step: 10150/18675	 lr: 0.00023	 loss: 0.0025
+2021-01-20 23:38:18:INFO:Epoch: 5	 global_step: 10200/18675	 lr: 0.00023	 loss: 0.0024
+2021-01-20 23:38:20:INFO:Epoch: 5	 global_step: 10250/18675	 lr: 0.00023	 loss: 0.0025
+2021-01-20 23:38:21:INFO:Epoch: 5	 global_step: 10300/18675	 lr: 0.00022	 loss: 0.0023
+2021-01-20 23:38:22:INFO:Epoch: 5	 global_step: 10350/18675	 lr: 0.00022	 loss: 0.0027
+2021-01-20 23:38:23:INFO:Epoch: 5	 global_step: 10400/18675	 lr: 0.00022	 loss: 0.0029
+2021-01-20 23:38:24:INFO:Epoch: 5	 global_step: 10450/18675	 lr: 0.00022	 loss: 0.0025
+2021-01-20 23:38:26:INFO:Epoch: 5	 global_step: 10500/18675	 lr: 0.00022	 loss: 0.0023
+2021-01-20 23:38:27:INFO:Epoch: 5	 global_step: 10550/18675	 lr: 0.00022	 loss: 0.0022
+2021-01-20 23:38:28:INFO:Epoch: 5	 global_step: 10600/18675	 lr: 0.00022	 loss: 0.0024
+2021-01-20 23:38:29:INFO:Epoch: 5	 global_step: 10650/18675	 lr: 0.00021	 loss: 0.0025
+2021-01-20 23:38:30:INFO:Epoch: 5	 global_step: 10700/18675	 lr: 0.00021	 loss: 0.0027
+2021-01-20 23:38:32:INFO:Epoch: 5	 global_step: 10750/18675	 lr: 0.00021	 loss: 0.0023
+2021-01-20 23:38:33:INFO:Epoch: 5	 global_step: 10800/18675	 lr: 0.00021	 loss: 0.0024
+2021-01-20 23:38:34:INFO:Epoch: 5	 global_step: 10850/18675	 lr: 0.00021	 loss: 0.0023
+2021-01-20 23:38:35:INFO:Epoch: 5	 global_step: 10900/18675	 lr: 0.00021	 loss: 0.0024
+2021-01-20 23:38:36:INFO:Epoch: 5	 global_step: 10950/18675	 lr: 0.00021	 loss: 0.0020
+2021-01-20 23:38:38:INFO:Epoch: 5	 global_step: 11000/18675	 lr: 0.00021	 loss: 0.0030
+2021-01-20 23:38:39:INFO:Epoch: 5	 global_step: 11050/18675	 lr: 0.00020	 loss: 0.0025
+2021-01-20 23:38:40:INFO:Epoch: 5	 global_step: 11100/18675	 lr: 0.00020	 loss: 0.0028
+2021-01-20 23:38:41:INFO:Epoch: 5	 global_step: 11150/18675	 lr: 0.00020	 loss: 0.0026
+2021-01-20 23:38:42:INFO:Epoch: 5	 global_step: 11200/18675	 lr: 0.00020	 loss: 0.0021
+2021-01-20 23:38:43:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:38:43:INFO:	Num examples = 248
+2021-01-20 23:38:43:INFO:	RMSE = 38.0953
+2021-01-20 23:38:44:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:38:44:INFO:	Num examples = 249
+2021-01-20 23:38:44:INFO:	RMSE = 49.5918
+2021-01-20 23:38:45:INFO:Epoch: 6	 global_step: 11250/18675	 lr: 0.00020	 loss: 0.0019
+2021-01-20 23:38:46:INFO:Epoch: 6	 global_step: 11300/18675	 lr: 0.00020	 loss: 0.0021
+2021-01-20 23:38:47:INFO:Epoch: 6	 global_step: 11350/18675	 lr: 0.00020	 loss: 0.0020
+2021-01-20 23:38:48:INFO:Epoch: 6	 global_step: 11400/18675	 lr: 0.00019	 loss: 0.0021
+2021-01-20 23:38:49:INFO:Epoch: 6	 global_step: 11450/18675	 lr: 0.00019	 loss: 0.0022
+2021-01-20 23:38:51:INFO:Epoch: 6	 global_step: 11500/18675	 lr: 0.00019	 loss: 0.0023
+2021-01-20 23:38:52:INFO:Epoch: 6	 global_step: 11550/18675	 lr: 0.00019	 loss: 0.0022
+2021-01-20 23:38:53:INFO:Epoch: 6	 global_step: 11600/18675	 lr: 0.00019	 loss: 0.0023
+2021-01-20 23:38:54:INFO:Epoch: 6	 global_step: 11650/18675	 lr: 0.00019	 loss: 0.0024
+2021-01-20 23:38:55:INFO:Epoch: 6	 global_step: 11700/18675	 lr: 0.00019	 loss: 0.0024
+2021-01-20 23:38:57:INFO:Epoch: 6	 global_step: 11750/18675	 lr: 0.00019	 loss: 0.0021
+2021-01-20 23:38:58:INFO:Epoch: 6	 global_step: 11800/18675	 lr: 0.00018	 loss: 0.0019
+2021-01-20 23:38:59:INFO:Epoch: 6	 global_step: 11850/18675	 lr: 0.00018	 loss: 0.0020
+2021-01-20 23:39:00:INFO:Epoch: 6	 global_step: 11900/18675	 lr: 0.00018	 loss: 0.0022
+2021-01-20 23:39:02:INFO:Epoch: 6	 global_step: 11950/18675	 lr: 0.00018	 loss: 0.0022
+2021-01-20 23:39:03:INFO:Epoch: 6	 global_step: 12000/18675	 lr: 0.00018	 loss: 0.0021
+2021-01-20 23:39:04:INFO:Epoch: 6	 global_step: 12050/18675	 lr: 0.00018	 loss: 0.0019
+2021-01-20 23:39:05:INFO:Epoch: 6	 global_step: 12100/18675	 lr: 0.00018	 loss: 0.0019
+2021-01-20 23:39:06:INFO:Epoch: 6	 global_step: 12150/18675	 lr: 0.00017	 loss: 0.0022
+2021-01-20 23:39:08:INFO:Epoch: 6	 global_step: 12200/18675	 lr: 0.00017	 loss: 0.0021
+2021-01-20 23:39:09:INFO:Epoch: 6	 global_step: 12250/18675	 lr: 0.00017	 loss: 0.0022
+2021-01-20 23:39:10:INFO:Epoch: 6	 global_step: 12300/18675	 lr: 0.00017	 loss: 0.0020
+2021-01-20 23:39:11:INFO:Epoch: 6	 global_step: 12350/18675	 lr: 0.00017	 loss: 0.0021
+2021-01-20 23:39:12:INFO:Epoch: 6	 global_step: 12400/18675	 lr: 0.00017	 loss: 0.0021
+2021-01-20 23:39:14:INFO:Epoch: 6	 global_step: 12450/18675	 lr: 0.00017	 loss: 0.0021
+2021-01-20 23:39:15:INFO:Epoch: 6	 global_step: 12500/18675	 lr: 0.00017	 loss: 0.0023
+2021-01-20 23:39:16:INFO:Epoch: 6	 global_step: 12550/18675	 lr: 0.00016	 loss: 0.0022
+2021-01-20 23:39:17:INFO:Epoch: 6	 global_step: 12600/18675	 lr: 0.00016	 loss: 0.0019
+2021-01-20 23:39:18:INFO:Epoch: 6	 global_step: 12650/18675	 lr: 0.00016	 loss: 0.0021
+2021-01-20 23:39:20:INFO:Epoch: 6	 global_step: 12700/18675	 lr: 0.00016	 loss: 0.0020
+2021-01-20 23:39:21:INFO:Epoch: 6	 global_step: 12750/18675	 lr: 0.00016	 loss: 0.0020
+2021-01-20 23:39:22:INFO:Epoch: 6	 global_step: 12800/18675	 lr: 0.00016	 loss: 0.0018
+2021-01-20 23:39:23:INFO:Epoch: 6	 global_step: 12850/18675	 lr: 0.00016	 loss: 0.0018
+2021-01-20 23:39:24:INFO:Epoch: 6	 global_step: 12900/18675	 lr: 0.00015	 loss: 0.0022
+2021-01-20 23:39:26:INFO:Epoch: 6	 global_step: 12950/18675	 lr: 0.00015	 loss: 0.0022
+2021-01-20 23:39:27:INFO:Epoch: 6	 global_step: 13000/18675	 lr: 0.00015	 loss: 0.0019
+2021-01-20 23:39:28:INFO:Epoch: 6	 global_step: 13050/18675	 lr: 0.00015	 loss: 0.0020
+2021-01-20 23:39:29:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:39:29:INFO:	Num examples = 248
+2021-01-20 23:39:29:INFO:	RMSE = 37.4044
+2021-01-20 23:39:30:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:39:30:INFO:	Num examples = 249
+2021-01-20 23:39:30:INFO:	RMSE = 48.8000
+2021-01-20 23:39:30:INFO:Epoch: 7	 global_step: 13100/18675	 lr: 0.00015	 loss: 0.0018
+2021-01-20 23:39:32:INFO:Epoch: 7	 global_step: 13150/18675	 lr: 0.00015	 loss: 0.0017
+2021-01-20 23:39:33:INFO:Epoch: 7	 global_step: 13200/18675	 lr: 0.00015	 loss: 0.0020
+2021-01-20 23:39:34:INFO:Epoch: 7	 global_step: 13250/18675	 lr: 0.00015	 loss: 0.0019
+2021-01-20 23:39:35:INFO:Epoch: 7	 global_step: 13300/18675	 lr: 0.00014	 loss: 0.0018
+2021-01-20 23:39:36:INFO:Epoch: 7	 global_step: 13350/18675	 lr: 0.00014	 loss: 0.0018
+2021-01-20 23:39:38:INFO:Epoch: 7	 global_step: 13400/18675	 lr: 0.00014	 loss: 0.0016
+2021-01-20 23:39:39:INFO:Epoch: 7	 global_step: 13450/18675	 lr: 0.00014	 loss: 0.0019
+2021-01-20 23:39:40:INFO:Epoch: 7	 global_step: 13500/18675	 lr: 0.00014	 loss: 0.0018
+2021-01-20 23:39:41:INFO:Epoch: 7	 global_step: 13550/18675	 lr: 0.00014	 loss: 0.0017
+2021-01-20 23:39:42:INFO:Epoch: 7	 global_step: 13600/18675	 lr: 0.00014	 loss: 0.0020
+2021-01-20 23:39:43:INFO:Epoch: 7	 global_step: 13650/18675	 lr: 0.00013	 loss: 0.0018
+2021-01-20 23:39:45:INFO:Epoch: 7	 global_step: 13700/18675	 lr: 0.00013	 loss: 0.0015
+2021-01-20 23:39:46:INFO:Epoch: 7	 global_step: 13750/18675	 lr: 0.00013	 loss: 0.0018
+2021-01-20 23:39:47:INFO:Epoch: 7	 global_step: 13800/18675	 lr: 0.00013	 loss: 0.0017
+2021-01-20 23:39:48:INFO:Epoch: 7	 global_step: 13850/18675	 lr: 0.00013	 loss: 0.0019
+2021-01-20 23:39:50:INFO:Epoch: 7	 global_step: 13900/18675	 lr: 0.00013	 loss: 0.0017
+2021-01-20 23:39:51:INFO:Epoch: 7	 global_step: 13950/18675	 lr: 0.00013	 loss: 0.0018
+2021-01-20 23:39:52:INFO:Epoch: 7	 global_step: 14000/18675	 lr: 0.00013	 loss: 0.0016
+2021-01-20 23:39:53:INFO:Epoch: 7	 global_step: 14050/18675	 lr: 0.00012	 loss: 0.0016
+2021-01-20 23:39:54:INFO:Epoch: 7	 global_step: 14100/18675	 lr: 0.00012	 loss: 0.0020
+2021-01-20 23:39:56:INFO:Epoch: 7	 global_step: 14150/18675	 lr: 0.00012	 loss: 0.0016
+2021-01-20 23:39:57:INFO:Epoch: 7	 global_step: 14200/18675	 lr: 0.00012	 loss: 0.0017
+2021-01-20 23:39:58:INFO:Epoch: 7	 global_step: 14250/18675	 lr: 0.00012	 loss: 0.0017
+2021-01-20 23:39:59:INFO:Epoch: 7	 global_step: 14300/18675	 lr: 0.00012	 loss: 0.0020
+2021-01-20 23:40:00:INFO:Epoch: 7	 global_step: 14350/18675	 lr: 0.00012	 loss: 0.0018
+2021-01-20 23:40:02:INFO:Epoch: 7	 global_step: 14400/18675	 lr: 0.00011	 loss: 0.0018
+2021-01-20 23:40:03:INFO:Epoch: 7	 global_step: 14450/18675	 lr: 0.00011	 loss: 0.0018
+2021-01-20 23:40:04:INFO:Epoch: 7	 global_step: 14500/18675	 lr: 0.00011	 loss: 0.0015
+2021-01-20 23:40:05:INFO:Epoch: 7	 global_step: 14550/18675	 lr: 0.00011	 loss: 0.0017
+2021-01-20 23:40:06:INFO:Epoch: 7	 global_step: 14600/18675	 lr: 0.00011	 loss: 0.0019
+2021-01-20 23:40:08:INFO:Epoch: 7	 global_step: 14650/18675	 lr: 0.00011	 loss: 0.0017
+2021-01-20 23:40:09:INFO:Epoch: 7	 global_step: 14700/18675	 lr: 0.00011	 loss: 0.0017
+2021-01-20 23:40:10:INFO:Epoch: 7	 global_step: 14750/18675	 lr: 0.00011	 loss: 0.0017
+2021-01-20 23:40:11:INFO:Epoch: 7	 global_step: 14800/18675	 lr: 0.00010	 loss: 0.0017
+2021-01-20 23:40:12:INFO:Epoch: 7	 global_step: 14850/18675	 lr: 0.00010	 loss: 0.0019
+2021-01-20 23:40:14:INFO:Epoch: 7	 global_step: 14900/18675	 lr: 0.00010	 loss: 0.0016
+2021-01-20 23:40:15:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:40:15:INFO:	Num examples = 248
+2021-01-20 23:40:15:INFO:	RMSE = 37.0477
+2021-01-20 23:40:16:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:40:16:INFO:	Num examples = 249
+2021-01-20 23:40:16:INFO:	RMSE = 47.8341
+2021-01-20 23:40:16:INFO:==> Minimal valid RMSE!
+2021-01-20 23:40:16:INFO:Save model to models/data-4_n_epochs-10_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.0005_lrInner-0.0001_warmUp-0.0_seed-42...
+2021-01-20 23:40:16:INFO:Epoch: 8	 global_step: 14950/18675	 lr: 0.00010	 loss: 0.0016
+2021-01-20 23:40:17:INFO:Epoch: 8	 global_step: 15000/18675	 lr: 0.00010	 loss: 0.0014
+2021-01-20 23:40:18:INFO:Epoch: 8	 global_step: 15050/18675	 lr: 0.00010	 loss: 0.0016
+2021-01-20 23:40:20:INFO:Epoch: 8	 global_step: 15100/18675	 lr: 0.00010	 loss: 0.0017
+2021-01-20 23:40:21:INFO:Epoch: 8	 global_step: 15150/18675	 lr: 0.00009	 loss: 0.0017
+2021-01-20 23:40:22:INFO:Epoch: 8	 global_step: 15200/18675	 lr: 0.00009	 loss: 0.0015
+2021-01-20 23:40:23:INFO:Epoch: 8	 global_step: 15250/18675	 lr: 0.00009	 loss: 0.0016
+2021-01-20 23:40:24:INFO:Epoch: 8	 global_step: 15300/18675	 lr: 0.00009	 loss: 0.0015
+2021-01-20 23:40:26:INFO:Epoch: 8	 global_step: 15350/18675	 lr: 0.00009	 loss: 0.0016
+2021-01-20 23:40:27:INFO:Epoch: 8	 global_step: 15400/18675	 lr: 0.00009	 loss: 0.0017
+2021-01-20 23:40:28:INFO:Epoch: 8	 global_step: 15450/18675	 lr: 0.00009	 loss: 0.0016
+2021-01-20 23:40:29:INFO:Epoch: 8	 global_step: 15500/18675	 lr: 0.00008	 loss: 0.0015
+2021-01-20 23:40:30:INFO:Epoch: 8	 global_step: 15550/18675	 lr: 0.00008	 loss: 0.0014
+2021-01-20 23:40:32:INFO:Epoch: 8	 global_step: 15600/18675	 lr: 0.00008	 loss: 0.0015
+2021-01-20 23:40:33:INFO:Epoch: 8	 global_step: 15650/18675	 lr: 0.00008	 loss: 0.0014
+2021-01-20 23:40:34:INFO:Epoch: 8	 global_step: 15700/18675	 lr: 0.00008	 loss: 0.0015
+2021-01-20 23:40:35:INFO:Epoch: 8	 global_step: 15750/18675	 lr: 0.00008	 loss: 0.0017
+2021-01-20 23:40:36:INFO:Epoch: 8	 global_step: 15800/18675	 lr: 0.00008	 loss: 0.0017
+2021-01-20 23:40:38:INFO:Epoch: 8	 global_step: 15850/18675	 lr: 0.00008	 loss: 0.0013
+2021-01-20 23:40:39:INFO:Epoch: 8	 global_step: 15900/18675	 lr: 0.00007	 loss: 0.0015
+2021-01-20 23:40:40:INFO:Epoch: 8	 global_step: 15950/18675	 lr: 0.00007	 loss: 0.0015
+2021-01-20 23:40:41:INFO:Epoch: 8	 global_step: 16000/18675	 lr: 0.00007	 loss: 0.0015
+2021-01-20 23:40:42:INFO:Epoch: 8	 global_step: 16050/18675	 lr: 0.00007	 loss: 0.0014
+2021-01-20 23:40:44:INFO:Epoch: 8	 global_step: 16100/18675	 lr: 0.00007	 loss: 0.0015
+2021-01-20 23:40:45:INFO:Epoch: 8	 global_step: 16150/18675	 lr: 0.00007	 loss: 0.0013
+2021-01-20 23:40:46:INFO:Epoch: 8	 global_step: 16200/18675	 lr: 0.00007	 loss: 0.0015
+2021-01-20 23:40:47:INFO:Epoch: 8	 global_step: 16250/18675	 lr: 0.00006	 loss: 0.0015
+2021-01-20 23:40:48:INFO:Epoch: 8	 global_step: 16300/18675	 lr: 0.00006	 loss: 0.0016
+2021-01-20 23:40:50:INFO:Epoch: 8	 global_step: 16350/18675	 lr: 0.00006	 loss: 0.0015
+2021-01-20 23:40:51:INFO:Epoch: 8	 global_step: 16400/18675	 lr: 0.00006	 loss: 0.0015
+2021-01-20 23:40:52:INFO:Epoch: 8	 global_step: 16450/18675	 lr: 0.00006	 loss: 0.0014
+2021-01-20 23:40:53:INFO:Epoch: 8	 global_step: 16500/18675	 lr: 0.00006	 loss: 0.0015
+2021-01-20 23:40:54:INFO:Epoch: 8	 global_step: 16550/18675	 lr: 0.00006	 loss: 0.0014
+2021-01-20 23:40:56:INFO:Epoch: 8	 global_step: 16600/18675	 lr: 0.00006	 loss: 0.0014
+2021-01-20 23:40:57:INFO:Epoch: 8	 global_step: 16650/18675	 lr: 0.00005	 loss: 0.0015
+2021-01-20 23:40:58:INFO:Epoch: 8	 global_step: 16700/18675	 lr: 0.00005	 loss: 0.0014
+2021-01-20 23:40:59:INFO:Epoch: 8	 global_step: 16750/18675	 lr: 0.00005	 loss: 0.0014
+2021-01-20 23:41:00:INFO:Epoch: 8	 global_step: 16800/18675	 lr: 0.00005	 loss: 0.0014
+2021-01-20 23:41:01:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:41:01:INFO:	Num examples = 248
+2021-01-20 23:41:01:INFO:	RMSE = 36.5161
+2021-01-20 23:41:02:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:41:02:INFO:	Num examples = 249
+2021-01-20 23:41:02:INFO:	RMSE = 48.0949
+2021-01-20 23:41:03:INFO:Epoch: 9	 global_step: 16850/18675	 lr: 0.00005	 loss: 0.0013
+2021-01-20 23:41:04:INFO:Epoch: 9	 global_step: 16900/18675	 lr: 0.00005	 loss: 0.0014
+2021-01-20 23:41:05:INFO:Epoch: 9	 global_step: 16950/18675	 lr: 0.00005	 loss: 0.0014
+2021-01-20 23:41:06:INFO:Epoch: 9	 global_step: 17000/18675	 lr: 0.00004	 loss: 0.0015
+2021-01-20 23:41:08:INFO:Epoch: 9	 global_step: 17050/18675	 lr: 0.00004	 loss: 0.0014
+2021-01-20 23:41:09:INFO:Epoch: 9	 global_step: 17100/18675	 lr: 0.00004	 loss: 0.0014
+2021-01-20 23:41:10:INFO:Epoch: 9	 global_step: 17150/18675	 lr: 0.00004	 loss: 0.0013
+2021-01-20 23:41:11:INFO:Epoch: 9	 global_step: 17200/18675	 lr: 0.00004	 loss: 0.0014
+2021-01-20 23:41:12:INFO:Epoch: 9	 global_step: 17250/18675	 lr: 0.00004	 loss: 0.0012
+2021-01-20 23:41:14:INFO:Epoch: 9	 global_step: 17300/18675	 lr: 0.00004	 loss: 0.0012
+2021-01-20 23:41:15:INFO:Epoch: 9	 global_step: 17350/18675	 lr: 0.00004	 loss: 0.0013
+2021-01-20 23:41:16:INFO:Epoch: 9	 global_step: 17400/18675	 lr: 0.00003	 loss: 0.0012
+2021-01-20 23:41:17:INFO:Epoch: 9	 global_step: 17450/18675	 lr: 0.00003	 loss: 0.0014
+2021-01-20 23:41:18:INFO:Epoch: 9	 global_step: 17500/18675	 lr: 0.00003	 loss: 0.0014
+2021-01-20 23:41:20:INFO:Epoch: 9	 global_step: 17550/18675	 lr: 0.00003	 loss: 0.0013
+2021-01-20 23:41:21:INFO:Epoch: 9	 global_step: 17600/18675	 lr: 0.00003	 loss: 0.0014
+2021-01-20 23:41:22:INFO:Epoch: 9	 global_step: 17650/18675	 lr: 0.00003	 loss: 0.0012
+2021-01-20 23:41:23:INFO:Epoch: 9	 global_step: 17700/18675	 lr: 0.00003	 loss: 0.0013
+2021-01-20 23:41:24:INFO:Epoch: 9	 global_step: 17750/18675	 lr: 0.00002	 loss: 0.0013
+2021-01-20 23:41:26:INFO:Epoch: 9	 global_step: 17800/18675	 lr: 0.00002	 loss: 0.0012
+2021-01-20 23:41:27:INFO:Epoch: 9	 global_step: 17850/18675	 lr: 0.00002	 loss: 0.0014
+2021-01-20 23:41:28:INFO:Epoch: 9	 global_step: 17900/18675	 lr: 0.00002	 loss: 0.0014
+2021-01-20 23:41:29:INFO:Epoch: 9	 global_step: 17950/18675	 lr: 0.00002	 loss: 0.0014
+2021-01-20 23:41:30:INFO:Epoch: 9	 global_step: 18000/18675	 lr: 0.00002	 loss: 0.0013
+2021-01-20 23:41:32:INFO:Epoch: 9	 global_step: 18050/18675	 lr: 0.00002	 loss: 0.0014
+2021-01-20 23:41:33:INFO:Epoch: 9	 global_step: 18100/18675	 lr: 0.00002	 loss: 0.0014
+2021-01-20 23:41:34:INFO:Epoch: 9	 global_step: 18150/18675	 lr: 0.00001	 loss: 0.0014
+2021-01-20 23:41:35:INFO:Epoch: 9	 global_step: 18200/18675	 lr: 0.00001	 loss: 0.0013
+2021-01-20 23:41:36:INFO:Epoch: 9	 global_step: 18250/18675	 lr: 0.00001	 loss: 0.0012
+2021-01-20 23:41:38:INFO:Epoch: 9	 global_step: 18300/18675	 lr: 0.00001	 loss: 0.0012
+2021-01-20 23:41:39:INFO:Epoch: 9	 global_step: 18350/18675	 lr: 0.00001	 loss: 0.0013
+2021-01-20 23:41:40:INFO:Epoch: 9	 global_step: 18400/18675	 lr: 0.00001	 loss: 0.0014
+2021-01-20 23:41:41:INFO:Epoch: 9	 global_step: 18450/18675	 lr: 0.00001	 loss: 0.0012
+2021-01-20 23:41:42:INFO:Epoch: 9	 global_step: 18500/18675	 lr: 0.00000	 loss: 0.0013
+2021-01-20 23:41:44:INFO:Epoch: 9	 global_step: 18550/18675	 lr: 0.00000	 loss: 0.0013
+2021-01-20 23:41:45:INFO:Epoch: 9	 global_step: 18600/18675	 lr: 0.00000	 loss: 0.0012
+2021-01-20 23:41:46:INFO:Epoch: 9	 global_step: 18650/18675	 lr: 0.00000	 loss: 0.0013
+2021-01-20 23:41:47:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-20 23:41:47:INFO:	Num examples = 248
+2021-01-20 23:41:47:INFO:	RMSE = 36.2753
+2021-01-20 23:41:48:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-20 23:41:48:INFO:	Num examples = 249
+2021-01-20 23:41:48:INFO:	RMSE = 46.8680
+2021-01-20 23:41:48:INFO:==> Minimal valid RMSE!
+2021-01-20 23:41:48:INFO:Save model to models/data-4_n_epochs-10_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.0005_lrInner-0.0001_warmUp-0.0_seed-42...
+2021-01-20 23:41:48:INFO:	Output TEST RMSE:	36.2753
+2021-01-20 23:41:48:INFO:	VALID RMSEs:	58.6379	50.6014	55.2515	52.7629	48.7096	49.5918	48.8000	47.8341	48.0949	46.8680
+2021-01-20 23:41:48:INFO:	TEST RMSEs:	46.6799	41.2591	43.2612	42.1322	38.7944	38.0953	37.4044	37.0477	36.5161	36.2753

@@ -1,0 +1,96 @@
+2021-02-24 12:28:58:INFO:Finish setting logger...
+2021-02-24 12:28:58:INFO:==> Training/Evaluation parameters are:
+2021-02-24 12:28:58:INFO:	Namespace(activation='relu'
+2021-02-24 12:28:58:INFO:	aug_ratio=150
+2021-02-24 12:28:58:INFO:	d_model=128
+2021-02-24 12:28:58:INFO:	data_fn=3
+2021-02-24 12:28:58:INFO:	datatest_fn=3
+2021-02-24 12:28:58:INFO:	device=device(type='cuda')
+2021-02-24 12:28:58:INFO:	dim_feedforward=512
+2021-02-24 12:28:58:INFO:	do_eval=True
+2021-02-24 12:28:58:INFO:	do_train=False
+2021-02-24 12:28:58:INFO:	e_dropout=0.1
+2021-02-24 12:28:58:INFO:	eval_batch_size=1
+2021-02-24 12:28:58:INFO:	filter_kernel_size=1
+2021-02-24 12:28:58:INFO:	gpu_id=0
+2021-02-24 12:28:58:INFO:	high_ratio=0.99
+2021-02-24 12:28:58:INFO:	inner_steps=2
+2021-02-24 12:28:58:INFO:	layer_norm=False
+2021-02-24 12:28:58:INFO:	logging_steps=50
+2021-02-24 12:28:58:INFO:	low_ratio=0.1
+2021-02-24 12:28:58:INFO:	lr=0.001
+2021-02-24 12:28:58:INFO:	lr_inner=0.001
+2021-02-24 12:28:58:INFO:	lr_meta=0.0001
+2021-02-24 12:28:58:INFO:	maxRUL=125
+2021-02-24 12:28:58:INFO:	max_grad_norm=5.0
+2021-02-24 12:28:58:INFO:	max_seq_len=550
+2021-02-24 12:28:58:INFO:	model_dir='models/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-2_innerSteps-2_lrMeta-0.0001_lrInner-0.001_warmUp-0.0_seed-128'
+2021-02-24 12:28:58:INFO:	n_epochs=5
+2021-02-24 12:28:58:INFO:	n_head=4
+2021-02-24 12:28:58:INFO:	n_layer=2
+2021-02-24 12:28:58:INFO:	noise_amplitude=0.01
+2021-02-24 12:28:58:INFO:	override_data_cache=True
+2021-02-24 12:28:58:INFO:	p_dropout=0.1
+2021-02-24 12:28:58:INFO:	seed=128
+2021-02-24 12:28:58:INFO:	support_size=2
+2021-02-24 12:28:58:INFO:	target_ruls_fn='data/RUL_FD003.txt'
+2021-02-24 12:28:58:INFO:	test_data_fn='data/test_FD003.txt'
+2021-02-24 12:28:58:INFO:	train_batch_size=20
+2021-02-24 12:28:58:INFO:	train_data_fn='data/train_FD003.txt'
+2021-02-24 12:28:58:INFO:	warmup_ratio=0.0
+2021-02-24 12:28:58:INFO:	weight_decay=0.01)
+2021-02-24 12:28:58:INFO:Dump arguments to models/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-2_innerSteps-2_lrMeta-0.0001_lrInner-0.001_warmUp-0.0_seed-128...
+2021-02-24 12:28:58:INFO:==> Read data from data/train_FD003.txt...
+2021-02-24 12:28:58:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2021-02-24 12:28:58:INFO:==> Min_max normalization...
+2021-02-24 12:28:58:INFO:	The min value is [-0.00860000029206276, -0.0006000000284984708, 640.8400268554688, 1564.300048828125, 1377.06005859375, 549.6099853515625, 2386.89990234375, 9017.98046875, 46.689998626708984, 517.77001953125, 2386.929931640625, 8099.68017578125, 8.156299591064453, 388.0, 38.16999816894531, 22.872600555419922]
+2021-02-24 12:28:58:INFO:	The max value is [0.00860000029206276, 0.000699999975040555, 645.1099853515625, 1615.3900146484375, 1441.1600341796875, 570.489990234375, 2388.60009765625, 9234.349609375, 48.439998626708984, 537.4000244140625, 2388.610107421875, 8290.5498046875, 8.570500373840332, 399.0, 39.849998474121094, 23.95050048828125]
+2021-02-24 12:28:58:INFO:==> Read data from data/test_FD003.txt...
+2021-02-24 12:28:58:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2021-02-24 12:28:59:INFO:==> Read RULsfrom data/RUL_FD003.txt...
+2021-02-24 12:28:59:INFO:	min_rul: 6, max_rul: 145
+2021-02-24 12:28:59:INFO:==> Input length ratio of the [TEST] data:
+2021-02-24 12:28:59:INFO:	min_ratio = 0.2216
+2021-02-24 12:28:59:INFO:	max_ratio = 0.9814
+2021-02-24 12:28:59:INFO:==> Min_max normalization...
+2021-02-24 12:28:59:INFO:	With given min value [-0.00860000029206276, -0.0006000000284984708, 640.8400268554688, 1564.300048828125, 1377.06005859375, 549.6099853515625, 2386.89990234375, 9017.98046875, 46.689998626708984, 517.77001953125, 2386.929931640625, 8099.68017578125, 8.156299591064453, 388.0, 38.16999816894531, 22.872600555419922]
+2021-02-24 12:28:59:INFO:	With given max value [0.00860000029206276, 0.000699999975040555, 645.1099853515625, 1615.3900146484375, 1441.1600341796875, 570.489990234375, 2388.60009765625, 9234.349609375, 48.439998626708984, 537.4000244140625, 2388.610107421875, 8290.5498046875, 8.570500373840332, 399.0, 39.849998474121094, 23.95050048828125]
+2021-02-24 12:28:59:INFO:==> Computing Criterion...
+2021-02-24 12:28:59:INFO:	The weights are: 0.007311264052987099, 0.007629068568348885, 0.06225283443927765, 0.06264059990644455, 0.07159123569726944, 0.07751007378101349, 0.07212734967470169, 0.06995023041963577, 0.07503791153430939, 0.07934150844812393, 0.071485236287117, 0.07187419384717941, 0.07131849229335785, 0.06488446146249771, 0.06785403192043304, 0.06719152629375458
+2021-02-24 12:28:59:INFO:==> Initialize [TEST] Corpus...
+2021-02-24 12:28:59:INFO:	Number of examples:  100
+2021-02-24 12:28:59:INFO:=============== Scheme: Meta Evaluation By Loading Exist Model ===============
+2021-02-24 12:28:59:INFO:Load model from models/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-2_innerSteps-2_lrMeta-0.0001_lrInner-0.001_warmUp-0.0_seed-128...
+2021-02-24 12:29:06:INFO:==> Group parameters for optimization...
+2021-02-24 12:29:06:INFO:    Parameters to update are:
+2021-02-24 12:29:06:INFO:	embed.mapping.weight
+2021-02-24 12:29:06:INFO:	embed.mapping.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.0.self_attn.in_proj_weight
+2021-02-24 12:29:06:INFO:	encoder.layers.0.self_attn.in_proj_bias
+2021-02-24 12:29:06:INFO:	encoder.layers.0.self_attn.out_proj.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.0.self_attn.out_proj.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.0.linear1.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.0.linear1.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.0.linear2.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.0.linear2.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.0.norm1.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.0.norm1.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.0.norm2.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.0.norm2.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.1.self_attn.in_proj_weight
+2021-02-24 12:29:06:INFO:	encoder.layers.1.self_attn.in_proj_bias
+2021-02-24 12:29:06:INFO:	encoder.layers.1.self_attn.out_proj.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.1.self_attn.out_proj.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.1.linear1.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.1.linear1.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.1.linear2.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.1.linear2.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.1.norm1.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.1.norm1.bias
+2021-02-24 12:29:06:INFO:	encoder.layers.1.norm2.weight
+2021-02-24 12:29:06:INFO:	encoder.layers.1.norm2.bias
+2021-02-24 12:29:06:INFO:	projection.weight
+2021-02-24 12:29:06:INFO:	projection.bias
+2021-02-24 12:29:10:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-02-24 12:29:10:INFO:	Num examples = 100
+2021-02-24 12:29:10:INFO:	RMSE = 53.3714

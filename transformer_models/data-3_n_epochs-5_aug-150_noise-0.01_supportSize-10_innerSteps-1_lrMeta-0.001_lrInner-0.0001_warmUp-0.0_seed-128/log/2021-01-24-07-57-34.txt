@@ -1,0 +1,206 @@
+2021-01-24 07:57:34:INFO:Finish setting logger...
+2021-01-24 07:57:34:INFO:==> Training/Evaluation parameters are:
+2021-01-24 07:57:34:INFO:	Namespace(activation='relu'
+2021-01-24 07:57:34:INFO:	aug_ratio=150
+2021-01-24 07:57:34:INFO:	d_model=128
+2021-01-24 07:57:34:INFO:	data_fn=3
+2021-01-24 07:57:34:INFO:	device=device(type='cuda')
+2021-01-24 07:57:34:INFO:	dim_feedforward=512
+2021-01-24 07:57:34:INFO:	do_eval=False
+2021-01-24 07:57:34:INFO:	do_train=False
+2021-01-24 07:57:34:INFO:	e_dropout=0.1
+2021-01-24 07:57:34:INFO:	eval_batch_size=1
+2021-01-24 07:57:34:INFO:	filter_kernel_size=1
+2021-01-24 07:57:34:INFO:	gpu_id=3
+2021-01-24 07:57:34:INFO:	high_ratio=0.99
+2021-01-24 07:57:34:INFO:	inner_steps=1
+2021-01-24 07:57:34:INFO:	layer_norm=False
+2021-01-24 07:57:34:INFO:	logging_steps=50
+2021-01-24 07:57:34:INFO:	low_ratio=0.1
+2021-01-24 07:57:34:INFO:	lr=0.001
+2021-01-24 07:57:34:INFO:	lr_inner=0.0001
+2021-01-24 07:57:34:INFO:	lr_meta=0.001
+2021-01-24 07:57:34:INFO:	maxRUL=125
+2021-01-24 07:57:34:INFO:	max_grad_norm=1.0
+2021-01-24 07:57:34:INFO:	max_seq_len=550
+2021-01-24 07:57:34:INFO:	model_dir='models/data-3_n_epochs-5_aug-150_noise-0.01_supportSize-10_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128'
+2021-01-24 07:57:34:INFO:	n_epochs=5
+2021-01-24 07:57:34:INFO:	n_head=4
+2021-01-24 07:57:34:INFO:	n_layer=2
+2021-01-24 07:57:34:INFO:	noise_amplitude=0.01
+2021-01-24 07:57:34:INFO:	override_data_cache=False
+2021-01-24 07:57:34:INFO:	p_dropout=0.1
+2021-01-24 07:57:34:INFO:	seed=128
+2021-01-24 07:57:34:INFO:	support_size=10
+2021-01-24 07:57:34:INFO:	target_ruls_fn='data/RUL_FD003.txt'
+2021-01-24 07:57:34:INFO:	test_data_fn='data/test_FD003.txt'
+2021-01-24 07:57:34:INFO:	train_batch_size=20
+2021-01-24 07:57:34:INFO:	train_data_fn='data/train_FD003.txt'
+2021-01-24 07:57:34:INFO:	warmup_ratio=0.0
+2021-01-24 07:57:34:INFO:	weight_decay=0.01)
+2021-01-24 07:57:34:INFO:Dump arguments to models/data-3_n_epochs-5_aug-150_noise-0.01_supportSize-10_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2021-01-24 07:57:34:INFO:==> Read data from data/train_FD003.txt...
+2021-01-24 07:57:34:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2021-01-24 07:57:35:INFO:==> Min_max normalization...
+2021-01-24 07:57:35:INFO:	The min value is [-0.00860000029206276, -0.0006000000284984708, 640.8400268554688, 1564.300048828125, 1377.06005859375, 549.6099853515625, 2386.89990234375, 9017.98046875, 46.689998626708984, 517.77001953125, 2386.929931640625, 8099.68017578125, 8.156299591064453, 388.0, 38.16999816894531, 22.872600555419922]
+2021-01-24 07:57:35:INFO:	The max value is [0.00860000029206276, 0.000699999975040555, 645.1099853515625, 1615.3900146484375, 1441.1600341796875, 570.489990234375, 2388.60009765625, 9234.349609375, 48.439998626708984, 537.4000244140625, 2388.610107421875, 8290.5498046875, 8.570500373840332, 399.0, 39.849998474121094, 23.95050048828125]
+2021-01-24 07:57:35:INFO:==> Read data from data/test_FD003.txt...
+2021-01-24 07:57:35:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2021-01-24 07:57:35:INFO:==> Read RULsfrom data/RUL_FD003.txt...
+2021-01-24 07:57:35:INFO:	min_rul: 6, max_rul: 145
+2021-01-24 07:57:35:INFO:==> Input length ratio of the [TEST] data:
+2021-01-24 07:57:35:INFO:	min_ratio = 0.2216
+2021-01-24 07:57:35:INFO:	max_ratio = 0.9814
+2021-01-24 07:57:35:INFO:==> Min_max normalization...
+2021-01-24 07:57:35:INFO:	With given min value [-0.00860000029206276, -0.0006000000284984708, 640.8400268554688, 1564.300048828125, 1377.06005859375, 549.6099853515625, 2386.89990234375, 9017.98046875, 46.689998626708984, 517.77001953125, 2386.929931640625, 8099.68017578125, 8.156299591064453, 388.0, 38.16999816894531, 22.872600555419922]
+2021-01-24 07:57:35:INFO:	With given max value [0.00860000029206276, 0.000699999975040555, 645.1099853515625, 1615.3900146484375, 1441.1600341796875, 570.489990234375, 2388.60009765625, 9234.349609375, 48.439998626708984, 537.4000244140625, 2388.610107421875, 8290.5498046875, 8.570500373840332, 399.0, 39.849998474121094, 23.95050048828125]
+2021-01-24 07:57:35:INFO:==> Computing Criterion...
+2021-01-24 07:57:35:INFO:	The weights are: 0.007311264052987099, 0.007629068568348885, 0.06225283443927765, 0.06264059990644455, 0.07159123569726944, 0.07751007378101349, 0.07212734967470169, 0.06995023041963577, 0.07503791153430939, 0.07934150844812393, 0.071485236287117, 0.07187419384717941, 0.07131849229335785, 0.06488446146249771, 0.06785403192043304, 0.06719152629375458
+2021-01-24 07:57:57:INFO:=============== Scheme: Meta Learning ===============
+2021-01-24 07:57:57:INFO:	Num examples = 15000
+2021-01-24 07:57:57:INFO:	Num epochs = 5
+2021-01-24 07:57:57:INFO:	Batch size = 20
+2021-01-24 07:57:57:INFO:	Total meta optimization steps = 3750
+2021-01-24 07:57:57:INFO:	Total inner optimization steps = 3750
+2021-01-24 07:58:02:INFO:==> Group parameters for optimization...
+2021-01-24 07:58:02:INFO:    Parameters to update are:
+2021-01-24 07:58:02:INFO:	embed.mapping.weight
+2021-01-24 07:58:02:INFO:	embed.mapping.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.0.self_attn.in_proj_weight
+2021-01-24 07:58:02:INFO:	encoder.layers.0.self_attn.in_proj_bias
+2021-01-24 07:58:02:INFO:	encoder.layers.0.self_attn.out_proj.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.0.self_attn.out_proj.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.0.linear1.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.0.linear1.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.0.linear2.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.0.linear2.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.0.norm1.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.0.norm1.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.0.norm2.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.0.norm2.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.1.self_attn.in_proj_weight
+2021-01-24 07:58:02:INFO:	encoder.layers.1.self_attn.in_proj_bias
+2021-01-24 07:58:02:INFO:	encoder.layers.1.self_attn.out_proj.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.1.self_attn.out_proj.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.1.linear1.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.1.linear1.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.1.linear2.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.1.linear2.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.1.norm1.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.1.norm1.bias
+2021-01-24 07:58:02:INFO:	encoder.layers.1.norm2.weight
+2021-01-24 07:58:02:INFO:	encoder.layers.1.norm2.bias
+2021-01-24 07:58:02:INFO:	projection.weight
+2021-01-24 07:58:02:INFO:	projection.bias
+2021-01-24 07:58:03:INFO:Epoch: 0	 global_step: 0/3750	 lr: 0.00100	 loss: 0.0012
+2021-01-24 07:58:28:INFO:Epoch: 0	 global_step: 50/3750	 lr: 0.00099	 loss: 0.0133
+2021-01-24 07:58:51:INFO:Epoch: 0	 global_step: 100/3750	 lr: 0.00097	 loss: 0.0070
+2021-01-24 07:59:14:INFO:Epoch: 0	 global_step: 150/3750	 lr: 0.00096	 loss: 0.0048
+2021-01-24 07:59:37:INFO:Epoch: 0	 global_step: 200/3750	 lr: 0.00095	 loss: 0.0036
+2021-01-24 08:00:02:INFO:Epoch: 0	 global_step: 250/3750	 lr: 0.00093	 loss: 0.0025
+2021-01-24 08:00:25:INFO:Epoch: 0	 global_step: 300/3750	 lr: 0.00092	 loss: 0.0022
+2021-01-24 08:00:48:INFO:Epoch: 0	 global_step: 350/3750	 lr: 0.00091	 loss: 0.0019
+2021-01-24 08:01:11:INFO:Epoch: 0	 global_step: 400/3750	 lr: 0.00089	 loss: 0.0017
+2021-01-24 08:01:33:INFO:Epoch: 0	 global_step: 450/3750	 lr: 0.00088	 loss: 0.0015
+2021-01-24 08:01:57:INFO:Epoch: 0	 global_step: 500/3750	 lr: 0.00087	 loss: 0.0016
+2021-01-24 08:02:20:INFO:Epoch: 0	 global_step: 550/3750	 lr: 0.00085	 loss: 0.0014
+2021-01-24 08:02:42:INFO:Epoch: 0	 global_step: 600/3750	 lr: 0.00084	 loss: 0.0012
+2021-01-24 08:03:05:INFO:Epoch: 0	 global_step: 650/3750	 lr: 0.00083	 loss: 0.0013
+2021-01-24 08:03:28:INFO:Epoch: 0	 global_step: 700/3750	 lr: 0.00081	 loss: 0.0012
+2021-01-24 08:03:52:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-24 08:03:52:INFO:	Num examples = 100
+2021-01-24 08:03:52:INFO:	RMSE = 14.3399
+2021-01-24 08:03:54:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-24 08:03:54:INFO:	Num examples = 100
+2021-01-24 08:03:54:INFO:	RMSE = 38.6301
+2021-01-24 08:03:54:INFO:==> Minimal valid RMSE!
+2021-01-24 08:03:54:INFO:Save model to models/data-3_n_epochs-5_aug-150_noise-0.01_supportSize-10_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2021-01-24 08:03:55:INFO:Epoch: 1	 global_step: 750/3750	 lr: 0.00080	 loss: 0.0023
+2021-01-24 08:04:18:INFO:Epoch: 1	 global_step: 800/3750	 lr: 0.00079	 loss: 0.0010
+2021-01-24 08:04:42:INFO:Epoch: 1	 global_step: 850/3750	 lr: 0.00077	 loss: 0.0011
+2021-01-24 08:05:07:INFO:Epoch: 1	 global_step: 900/3750	 lr: 0.00076	 loss: 0.0009
+2021-01-24 08:05:33:INFO:Epoch: 1	 global_step: 950/3750	 lr: 0.00075	 loss: 0.0010
+2021-01-24 08:05:59:INFO:Epoch: 1	 global_step: 1000/3750	 lr: 0.00073	 loss: 0.0011
+2021-01-24 08:06:25:INFO:Epoch: 1	 global_step: 1050/3750	 lr: 0.00072	 loss: 0.0008
+2021-01-24 08:06:49:INFO:Epoch: 1	 global_step: 1100/3750	 lr: 0.00071	 loss: 0.0015
+2021-01-24 08:07:11:INFO:Epoch: 1	 global_step: 1150/3750	 lr: 0.00069	 loss: 0.0008
+2021-01-24 08:07:34:INFO:Epoch: 1	 global_step: 1200/3750	 lr: 0.00068	 loss: 0.0008
+2021-01-24 08:07:57:INFO:Epoch: 1	 global_step: 1250/3750	 lr: 0.00067	 loss: 0.0008
+2021-01-24 08:08:20:INFO:Epoch: 1	 global_step: 1300/3750	 lr: 0.00065	 loss: 0.0007
+2021-01-24 08:08:43:INFO:Epoch: 1	 global_step: 1350/3750	 lr: 0.00064	 loss: 0.0008
+2021-01-24 08:09:05:INFO:Epoch: 1	 global_step: 1400/3750	 lr: 0.00063	 loss: 0.0008
+2021-01-24 08:09:28:INFO:Epoch: 1	 global_step: 1450/3750	 lr: 0.00061	 loss: 0.0007
+2021-01-24 08:09:53:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-24 08:09:53:INFO:	Num examples = 100
+2021-01-24 08:09:53:INFO:	RMSE = 14.6542
+2021-01-24 08:09:54:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-24 08:09:54:INFO:	Num examples = 100
+2021-01-24 08:09:54:INFO:	RMSE = 40.7838
+2021-01-24 08:09:55:INFO:Epoch: 2	 global_step: 1500/3750	 lr: 0.00060	 loss: 0.0007
+2021-01-24 08:10:18:INFO:Epoch: 2	 global_step: 1550/3750	 lr: 0.00059	 loss: 0.0007
+2021-01-24 08:10:41:INFO:Epoch: 2	 global_step: 1600/3750	 lr: 0.00057	 loss: 0.0008
+2021-01-24 08:11:04:INFO:Epoch: 2	 global_step: 1650/3750	 lr: 0.00056	 loss: 0.0006
+2021-01-24 08:11:26:INFO:Epoch: 2	 global_step: 1700/3750	 lr: 0.00055	 loss: 0.0007
+2021-01-24 08:11:49:INFO:Epoch: 2	 global_step: 1750/3750	 lr: 0.00053	 loss: 0.0006
+2021-01-24 08:12:12:INFO:Epoch: 2	 global_step: 1800/3750	 lr: 0.00052	 loss: 0.0006
+2021-01-24 08:12:35:INFO:Epoch: 2	 global_step: 1850/3750	 lr: 0.00051	 loss: 0.0006
+2021-01-24 08:12:58:INFO:Epoch: 2	 global_step: 1900/3750	 lr: 0.00049	 loss: 0.0007
+2021-01-24 08:13:21:INFO:Epoch: 2	 global_step: 1950/3750	 lr: 0.00048	 loss: 0.0006
+2021-01-24 08:13:44:INFO:Epoch: 2	 global_step: 2000/3750	 lr: 0.00047	 loss: 0.0006
+2021-01-24 08:14:07:INFO:Epoch: 2	 global_step: 2050/3750	 lr: 0.00045	 loss: 0.0006
+2021-01-24 08:14:30:INFO:Epoch: 2	 global_step: 2100/3750	 lr: 0.00044	 loss: 0.0006
+2021-01-24 08:14:53:INFO:Epoch: 2	 global_step: 2150/3750	 lr: 0.00043	 loss: 0.0005
+2021-01-24 08:15:15:INFO:Epoch: 2	 global_step: 2200/3750	 lr: 0.00041	 loss: 0.0007
+2021-01-24 08:15:39:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-24 08:15:39:INFO:	Num examples = 100
+2021-01-24 08:15:39:INFO:	RMSE = 19.7617
+2021-01-24 08:15:41:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-24 08:15:41:INFO:	Num examples = 100
+2021-01-24 08:15:41:INFO:	RMSE = 34.6124
+2021-01-24 08:15:41:INFO:==> Minimal valid RMSE!
+2021-01-24 08:15:41:INFO:Save model to models/data-3_n_epochs-5_aug-150_noise-0.01_supportSize-10_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2021-01-24 08:15:42:INFO:Epoch: 3	 global_step: 2250/3750	 lr: 0.00040	 loss: 0.0005
+2021-01-24 08:16:05:INFO:Epoch: 3	 global_step: 2300/3750	 lr: 0.00039	 loss: 0.0005
+2021-01-24 08:16:27:INFO:Epoch: 3	 global_step: 2350/3750	 lr: 0.00037	 loss: 0.0005
+2021-01-24 08:16:50:INFO:Epoch: 3	 global_step: 2400/3750	 lr: 0.00036	 loss: 0.0005
+2021-01-24 08:17:15:INFO:Epoch: 3	 global_step: 2450/3750	 lr: 0.00035	 loss: 0.0005
+2021-01-24 08:17:39:INFO:Epoch: 3	 global_step: 2500/3750	 lr: 0.00033	 loss: 0.0005
+2021-01-24 08:18:02:INFO:Epoch: 3	 global_step: 2550/3750	 lr: 0.00032	 loss: 0.0005
+2021-01-24 08:18:25:INFO:Epoch: 3	 global_step: 2600/3750	 lr: 0.00031	 loss: 0.0005
+2021-01-24 08:18:48:INFO:Epoch: 3	 global_step: 2650/3750	 lr: 0.00029	 loss: 0.0005
+2021-01-24 08:19:11:INFO:Epoch: 3	 global_step: 2700/3750	 lr: 0.00028	 loss: 0.0004
+2021-01-24 08:19:33:INFO:Epoch: 3	 global_step: 2750/3750	 lr: 0.00027	 loss: 0.0004
+2021-01-24 08:19:56:INFO:Epoch: 3	 global_step: 2800/3750	 lr: 0.00025	 loss: 0.0005
+2021-01-24 08:20:19:INFO:Epoch: 3	 global_step: 2850/3750	 lr: 0.00024	 loss: 0.0005
+2021-01-24 08:20:42:INFO:Epoch: 3	 global_step: 2900/3750	 lr: 0.00023	 loss: 0.0004
+2021-01-24 08:21:05:INFO:Epoch: 3	 global_step: 2950/3750	 lr: 0.00021	 loss: 0.0004
+2021-01-24 08:21:29:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-24 08:21:29:INFO:	Num examples = 100
+2021-01-24 08:21:29:INFO:	RMSE = 18.7506
+2021-01-24 08:21:31:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-24 08:21:31:INFO:	Num examples = 100
+2021-01-24 08:21:31:INFO:	RMSE = 35.1175
+2021-01-24 08:21:31:INFO:Epoch: 4	 global_step: 3000/3750	 lr: 0.00020	 loss: 0.0004
+2021-01-24 08:21:54:INFO:Epoch: 4	 global_step: 3050/3750	 lr: 0.00019	 loss: 0.0004
+2021-01-24 08:22:17:INFO:Epoch: 4	 global_step: 3100/3750	 lr: 0.00017	 loss: 0.0004
+2021-01-24 08:22:40:INFO:Epoch: 4	 global_step: 3150/3750	 lr: 0.00016	 loss: 0.0004
+2021-01-24 08:23:03:INFO:Epoch: 4	 global_step: 3200/3750	 lr: 0.00015	 loss: 0.0004
+2021-01-24 08:23:26:INFO:Epoch: 4	 global_step: 3250/3750	 lr: 0.00013	 loss: 0.0004
+2021-01-24 08:23:48:INFO:Epoch: 4	 global_step: 3300/3750	 lr: 0.00012	 loss: 0.0004
+2021-01-24 08:24:11:INFO:Epoch: 4	 global_step: 3350/3750	 lr: 0.00011	 loss: 0.0004
+2021-01-24 08:24:34:INFO:Epoch: 4	 global_step: 3400/3750	 lr: 0.00009	 loss: 0.0004
+2021-01-24 08:24:57:INFO:Epoch: 4	 global_step: 3450/3750	 lr: 0.00008	 loss: 0.0004
+2021-01-24 08:25:20:INFO:Epoch: 4	 global_step: 3500/3750	 lr: 0.00007	 loss: 0.0004
+2021-01-24 08:25:43:INFO:Epoch: 4	 global_step: 3550/3750	 lr: 0.00005	 loss: 0.0004
+2021-01-24 08:26:06:INFO:Epoch: 4	 global_step: 3600/3750	 lr: 0.00004	 loss: 0.0003
+2021-01-24 08:26:29:INFO:Epoch: 4	 global_step: 3650/3750	 lr: 0.00003	 loss: 0.0003
+2021-01-24 08:26:52:INFO:Epoch: 4	 global_step: 3700/3750	 lr: 0.00001	 loss: 0.0003
+2021-01-24 08:27:18:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2021-01-24 08:27:18:INFO:	Num examples = 100
+2021-01-24 08:27:18:INFO:	RMSE = 13.6368
+2021-01-24 08:27:20:INFO:############### Compute RMSEs @ mode [VALID] ###############
+2021-01-24 08:27:20:INFO:	Num examples = 100
+2021-01-24 08:27:20:INFO:	RMSE = 42.0584
+2021-01-24 08:27:20:INFO:	Output TEST RMSE:	19.7617
+2021-01-24 08:27:20:INFO:	VALID RMSEs:	38.6301	40.7838	34.6124	35.1175	42.0584
+2021-01-24 08:27:20:INFO:	TEST RMSEs:	14.3399	14.6542	19.7617	18.7506	13.6368

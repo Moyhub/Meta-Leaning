@@ -1,0 +1,316 @@
+2022-01-16 16:51:30:INFO:Finish setting logger...
+2022-01-16 16:51:30:INFO:==> Training/Evaluation parameters are:
+2022-01-16 16:51:30:INFO:	Namespace(model_dir='lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128'
+2022-01-16 16:51:30:INFO:	data_fn=1
+2022-01-16 16:51:30:INFO:	datatest_fn=1
+2022-01-16 16:51:30:INFO:	filter_kernel_size=1
+2022-01-16 16:51:30:INFO:	override_data_cache=False
+2022-01-16 16:51:30:INFO:	maxRUL=125
+2022-01-16 16:51:30:INFO:	low_ratio=0.1
+2022-01-16 16:51:30:INFO:	high_ratio=0.99
+2022-01-16 16:51:30:INFO:	aug_ratio=150
+2022-01-16 16:51:30:INFO:	noise_amplitude=0.01
+2022-01-16 16:51:30:INFO:	modeltype='lstm'
+2022-01-16 16:51:30:INFO:	max_seq_len=550
+2022-01-16 16:51:30:INFO:	d_model=128
+2022-01-16 16:51:30:INFO:	p_dropout=0.1
+2022-01-16 16:51:30:INFO:	n_head=4
+2022-01-16 16:51:30:INFO:	n_layer=2
+2022-01-16 16:51:30:INFO:	dim_feedforward=512
+2022-01-16 16:51:30:INFO:	e_dropout=0.1
+2022-01-16 16:51:30:INFO:	activation='relu'
+2022-01-16 16:51:30:INFO:	layer_norm=False
+2022-01-16 16:51:30:INFO:	support_size=0
+2022-01-16 16:51:30:INFO:	inner_steps=1
+2022-01-16 16:51:30:INFO:	lr_inner=0.0001
+2022-01-16 16:51:30:INFO:	lr_meta=0.001
+2022-01-16 16:51:30:INFO:	n_epochs=5
+2022-01-16 16:51:30:INFO:	train_batch_size=20
+2022-01-16 16:51:30:INFO:	eval_batch_size=1
+2022-01-16 16:51:30:INFO:	lr=0.001
+2022-01-16 16:51:30:INFO:	weight_decay=0.01
+2022-01-16 16:51:30:INFO:	warmup_ratio=0.0
+2022-01-16 16:51:30:INFO:	max_grad_norm=5.0
+2022-01-16 16:51:30:INFO:	logging_steps=50
+2022-01-16 16:51:30:INFO:	seed=128
+2022-01-16 16:51:30:INFO:	gpu_id=1
+2022-01-16 16:51:30:INFO:	do_train=False
+2022-01-16 16:51:30:INFO:	do_eval=True
+2022-01-16 16:51:30:INFO:	train_data_fn='data/train_FD001.txt'
+2022-01-16 16:51:30:INFO:	test_data_fn='data/test_FD001.txt'
+2022-01-16 16:51:30:INFO:	target_ruls_fn='data/RUL_FD001.txt'
+2022-01-16 16:51:30:INFO:	device=device(type='cuda'))
+2022-01-16 16:51:30:INFO:Dump arguments to lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-01-16 16:51:30:INFO:==> Read data from data/train_FD001.txt...
+2022-01-16 16:51:30:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-01-16 16:51:30:INFO:==> Min_max normalization...
+2022-01-16 16:51:30:INFO:	The min value is [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-01-16 16:51:30:INFO:	The max value is [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-01-16 16:51:30:INFO:==> Read data from data/test_FD001.txt...
+2022-01-16 16:51:30:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-01-16 16:51:30:INFO:==> Read RULsfrom data/RUL_FD001.txt...
+2022-01-16 16:51:30:INFO:	min_rul: 7, max_rul: 145
+2022-01-16 16:51:30:INFO:==> Input length ratio of the [TEST] data:
+2022-01-16 16:51:30:INFO:	min_ratio = 0.2067
+2022-01-16 16:51:30:INFO:	max_ratio = 0.9667
+2022-01-16 16:51:30:INFO:==> Min_max normalization...
+2022-01-16 16:51:30:INFO:	With given min value [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-01-16 16:51:30:INFO:	With given max value [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-01-16 16:51:30:INFO:=============== Scheme: Meta Evaluation By Loading Exist Model ===============
+2022-01-16 16:51:30:INFO:Load model from lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-01-16 16:51:39:INFO:==> Group parameters for optimization...
+2022-01-16 16:51:39:INFO:    Parameters to update are:
+2022-01-16 16:51:39:INFO:	lstmlayer1.weight_ih_l0
+2022-01-16 16:51:39:INFO:	lstmlayer1.weight_hh_l0
+2022-01-16 16:51:39:INFO:	lstmlayer1.bias_ih_l0
+2022-01-16 16:51:39:INFO:	lstmlayer1.bias_hh_l0
+2022-01-16 16:51:39:INFO:	lstmlayer2.weight_ih_l0
+2022-01-16 16:51:39:INFO:	lstmlayer2.weight_hh_l0
+2022-01-16 16:51:39:INFO:	lstmlayer2.bias_ih_l0
+2022-01-16 16:51:39:INFO:	lstmlayer2.bias_hh_l0
+2022-01-16 16:51:39:INFO:	nnlayer1.weight
+2022-01-16 16:51:39:INFO:	nnlayer1.bias
+2022-01-16 16:51:39:INFO:	nnlayer2.weight
+2022-01-16 16:51:39:INFO:	nnlayer2.bias
+2022-01-16 16:51:39:INFO:	nnlayer3.weight
+2022-01-16 16:51:39:INFO:	nnlayer3.bias
+2022-01-16 16:51:45:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2022-01-16 16:51:45:INFO:	Num examples = 100
+2022-01-16 16:51:45:INFO:	RMSE = 13.5351
+2022-02-24 15:39:16:INFO:Finish setting logger...
+2022-02-24 15:39:16:INFO:==> Training/Evaluation parameters are:
+2022-02-24 15:39:16:INFO:	Namespace(model_dir='lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128'
+2022-02-24 15:39:16:INFO:	data_fn=1
+2022-02-24 15:39:16:INFO:	datatest_fn=1
+2022-02-24 15:39:16:INFO:	filter_kernel_size=1
+2022-02-24 15:39:16:INFO:	override_data_cache=False
+2022-02-24 15:39:16:INFO:	maxRUL=125
+2022-02-24 15:39:16:INFO:	low_ratio=0.1
+2022-02-24 15:39:16:INFO:	high_ratio=0.99
+2022-02-24 15:39:16:INFO:	aug_ratio=150
+2022-02-24 15:39:16:INFO:	noise_amplitude=0.01
+2022-02-24 15:39:16:INFO:	modeltype='lstm'
+2022-02-24 15:39:16:INFO:	max_seq_len=550
+2022-02-24 15:39:16:INFO:	d_model=128
+2022-02-24 15:39:16:INFO:	p_dropout=0.1
+2022-02-24 15:39:16:INFO:	n_head=4
+2022-02-24 15:39:16:INFO:	n_layer=2
+2022-02-24 15:39:16:INFO:	dim_feedforward=512
+2022-02-24 15:39:16:INFO:	e_dropout=0.1
+2022-02-24 15:39:16:INFO:	activation='relu'
+2022-02-24 15:39:16:INFO:	layer_norm=False
+2022-02-24 15:39:16:INFO:	support_size=0
+2022-02-24 15:39:16:INFO:	inner_steps=1
+2022-02-24 15:39:16:INFO:	lr_inner=0.0001
+2022-02-24 15:39:16:INFO:	lr_meta=0.001
+2022-02-24 15:39:16:INFO:	n_epochs=5
+2022-02-24 15:39:16:INFO:	train_batch_size=20
+2022-02-24 15:39:16:INFO:	eval_batch_size=1
+2022-02-24 15:39:16:INFO:	lr=0.001
+2022-02-24 15:39:16:INFO:	weight_decay=0.01
+2022-02-24 15:39:16:INFO:	warmup_ratio=0.0
+2022-02-24 15:39:16:INFO:	max_grad_norm=5.0
+2022-02-24 15:39:16:INFO:	logging_steps=50
+2022-02-24 15:39:16:INFO:	seed=128
+2022-02-24 15:39:16:INFO:	gpu_id=2
+2022-02-24 15:39:16:INFO:	do_train=False
+2022-02-24 15:39:16:INFO:	do_eval=True
+2022-02-24 15:39:16:INFO:	train_data_fn='data/train_FD001.txt'
+2022-02-24 15:39:16:INFO:	test_data_fn='data/test_FD001.txt'
+2022-02-24 15:39:16:INFO:	target_ruls_fn='data/RUL_FD001.txt'
+2022-02-24 15:39:16:INFO:	device=device(type='cuda'))
+2022-02-24 15:39:16:INFO:Dump arguments to lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-02-24 15:39:16:INFO:==> Read data from data/train_FD001.txt...
+2022-02-24 15:39:16:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-02-24 15:39:16:INFO:==> Min_max normalization...
+2022-02-24 15:39:16:INFO:	The min value is [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-02-24 15:39:16:INFO:	The max value is [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-02-24 15:39:16:INFO:==> Read data from data/test_FD001.txt...
+2022-02-24 15:39:16:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-02-24 15:39:16:INFO:==> Read RULsfrom data/RUL_FD001.txt...
+2022-02-24 15:39:16:INFO:	min_rul: 7, max_rul: 145
+2022-02-24 15:39:16:INFO:==> Input length ratio of the [TEST] data:
+2022-02-24 15:39:16:INFO:	min_ratio = 0.2067
+2022-02-24 15:39:16:INFO:	max_ratio = 0.9667
+2022-02-24 15:39:16:INFO:==> Min_max normalization...
+2022-02-24 15:39:16:INFO:	With given min value [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-02-24 15:39:16:INFO:	With given max value [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-02-24 15:39:16:INFO:=============== Scheme: Meta Evaluation By Loading Exist Model ===============
+2022-02-24 15:39:16:INFO:Load model from lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-02-24 15:39:20:INFO:==> Group parameters for optimization...
+2022-02-24 15:39:20:INFO:    Parameters to update are:
+2022-02-24 15:39:20:INFO:	lstmlayer1.weight_ih_l0
+2022-02-24 15:39:20:INFO:	lstmlayer1.weight_hh_l0
+2022-02-24 15:39:20:INFO:	lstmlayer1.bias_ih_l0
+2022-02-24 15:39:20:INFO:	lstmlayer1.bias_hh_l0
+2022-02-24 15:39:20:INFO:	lstmlayer2.weight_ih_l0
+2022-02-24 15:39:20:INFO:	lstmlayer2.weight_hh_l0
+2022-02-24 15:39:20:INFO:	lstmlayer2.bias_ih_l0
+2022-02-24 15:39:20:INFO:	lstmlayer2.bias_hh_l0
+2022-02-24 15:39:20:INFO:	nnlayer1.weight
+2022-02-24 15:39:20:INFO:	nnlayer1.bias
+2022-02-24 15:39:20:INFO:	nnlayer2.weight
+2022-02-24 15:39:20:INFO:	nnlayer2.bias
+2022-02-24 15:39:20:INFO:	nnlayer3.weight
+2022-02-24 15:39:20:INFO:	nnlayer3.bias
+2022-02-24 15:39:22:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2022-02-24 15:39:22:INFO:	Num examples = 100
+2022-02-24 15:39:22:INFO:	RMSE = 13.5351
+2022-02-24 15:59:06:INFO:Finish setting logger...
+2022-02-24 15:59:06:INFO:==> Training/Evaluation parameters are:
+2022-02-24 15:59:06:INFO:	Namespace(model_dir='lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128'
+2022-02-24 15:59:06:INFO:	data_fn=1
+2022-02-24 15:59:06:INFO:	datatest_fn=1
+2022-02-24 15:59:06:INFO:	filter_kernel_size=1
+2022-02-24 15:59:06:INFO:	override_data_cache=False
+2022-02-24 15:59:06:INFO:	maxRUL=125
+2022-02-24 15:59:06:INFO:	low_ratio=0.1
+2022-02-24 15:59:06:INFO:	high_ratio=0.99
+2022-02-24 15:59:06:INFO:	aug_ratio=150
+2022-02-24 15:59:06:INFO:	noise_amplitude=0.01
+2022-02-24 15:59:06:INFO:	modeltype='lstm'
+2022-02-24 15:59:06:INFO:	max_seq_len=550
+2022-02-24 15:59:06:INFO:	d_model=128
+2022-02-24 15:59:06:INFO:	p_dropout=0.1
+2022-02-24 15:59:06:INFO:	n_head=4
+2022-02-24 15:59:06:INFO:	n_layer=2
+2022-02-24 15:59:06:INFO:	dim_feedforward=512
+2022-02-24 15:59:06:INFO:	e_dropout=0.1
+2022-02-24 15:59:06:INFO:	activation='relu'
+2022-02-24 15:59:06:INFO:	layer_norm=False
+2022-02-24 15:59:06:INFO:	support_size=0
+2022-02-24 15:59:06:INFO:	inner_steps=1
+2022-02-24 15:59:06:INFO:	lr_inner=0.0001
+2022-02-24 15:59:06:INFO:	lr_meta=0.001
+2022-02-24 15:59:06:INFO:	n_epochs=5
+2022-02-24 15:59:06:INFO:	train_batch_size=20
+2022-02-24 15:59:06:INFO:	eval_batch_size=1
+2022-02-24 15:59:06:INFO:	lr=0.001
+2022-02-24 15:59:06:INFO:	weight_decay=0.01
+2022-02-24 15:59:06:INFO:	warmup_ratio=0.0
+2022-02-24 15:59:06:INFO:	max_grad_norm=5.0
+2022-02-24 15:59:06:INFO:	logging_steps=50
+2022-02-24 15:59:06:INFO:	seed=128
+2022-02-24 15:59:06:INFO:	gpu_id=2
+2022-02-24 15:59:06:INFO:	do_train=False
+2022-02-24 15:59:06:INFO:	do_eval=True
+2022-02-24 15:59:06:INFO:	train_data_fn='data/train_FD001.txt'
+2022-02-24 15:59:06:INFO:	test_data_fn='data/test_FD001.txt'
+2022-02-24 15:59:06:INFO:	target_ruls_fn='data/RUL_FD001.txt'
+2022-02-24 15:59:06:INFO:	device=device(type='cuda'))
+2022-02-24 15:59:06:INFO:Dump arguments to lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-02-24 15:59:06:INFO:==> Read data from data/train_FD001.txt...
+2022-02-24 15:59:06:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-02-24 15:59:06:INFO:==> Min_max normalization...
+2022-02-24 15:59:06:INFO:	The min value is [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-02-24 15:59:06:INFO:	The max value is [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-02-24 15:59:06:INFO:==> Read data from data/test_FD001.txt...
+2022-02-24 15:59:06:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-02-24 15:59:06:INFO:==> Read RULsfrom data/RUL_FD001.txt...
+2022-02-24 15:59:06:INFO:	min_rul: 7, max_rul: 145
+2022-02-24 15:59:06:INFO:==> Input length ratio of the [TEST] data:
+2022-02-24 15:59:06:INFO:	min_ratio = 0.2067
+2022-02-24 15:59:06:INFO:	max_ratio = 0.9667
+2022-02-24 15:59:06:INFO:==> Min_max normalization...
+2022-02-24 15:59:06:INFO:	With given min value [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-02-24 15:59:06:INFO:	With given max value [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-02-24 15:59:06:INFO:=============== Scheme: Meta Evaluation By Loading Exist Model ===============
+2022-02-24 15:59:06:INFO:Load model from lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-02-24 15:59:11:INFO:==> Group parameters for optimization...
+2022-02-24 15:59:11:INFO:    Parameters to update are:
+2022-02-24 15:59:11:INFO:	lstmlayer1.weight_ih_l0
+2022-02-24 15:59:11:INFO:	lstmlayer1.weight_hh_l0
+2022-02-24 15:59:11:INFO:	lstmlayer1.bias_ih_l0
+2022-02-24 15:59:11:INFO:	lstmlayer1.bias_hh_l0
+2022-02-24 15:59:11:INFO:	lstmlayer2.weight_ih_l0
+2022-02-24 15:59:11:INFO:	lstmlayer2.weight_hh_l0
+2022-02-24 15:59:11:INFO:	lstmlayer2.bias_ih_l0
+2022-02-24 15:59:11:INFO:	lstmlayer2.bias_hh_l0
+2022-02-24 15:59:11:INFO:	nnlayer1.weight
+2022-02-24 15:59:11:INFO:	nnlayer1.bias
+2022-02-24 15:59:11:INFO:	nnlayer2.weight
+2022-02-24 15:59:11:INFO:	nnlayer2.bias
+2022-02-24 15:59:11:INFO:	nnlayer3.weight
+2022-02-24 15:59:11:INFO:	nnlayer3.bias
+2022-02-24 15:59:12:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2022-02-24 15:59:12:INFO:	Num examples = 100
+2022-02-24 15:59:12:INFO:	RMSE = 13.5351
+2022-02-24 16:03:47:INFO:Finish setting logger...
+2022-02-24 16:03:47:INFO:==> Training/Evaluation parameters are:
+2022-02-24 16:03:47:INFO:	Namespace(model_dir='lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128'
+2022-02-24 16:03:47:INFO:	data_fn=1
+2022-02-24 16:03:47:INFO:	datatest_fn=1
+2022-02-24 16:03:47:INFO:	filter_kernel_size=1
+2022-02-24 16:03:47:INFO:	override_data_cache=False
+2022-02-24 16:03:47:INFO:	maxRUL=125
+2022-02-24 16:03:47:INFO:	low_ratio=0.1
+2022-02-24 16:03:47:INFO:	high_ratio=0.99
+2022-02-24 16:03:47:INFO:	aug_ratio=150
+2022-02-24 16:03:47:INFO:	noise_amplitude=0.01
+2022-02-24 16:03:47:INFO:	modeltype='lstm'
+2022-02-24 16:03:47:INFO:	max_seq_len=550
+2022-02-24 16:03:47:INFO:	d_model=128
+2022-02-24 16:03:47:INFO:	p_dropout=0.1
+2022-02-24 16:03:47:INFO:	n_head=4
+2022-02-24 16:03:47:INFO:	n_layer=2
+2022-02-24 16:03:47:INFO:	dim_feedforward=512
+2022-02-24 16:03:47:INFO:	e_dropout=0.1
+2022-02-24 16:03:47:INFO:	activation='relu'
+2022-02-24 16:03:47:INFO:	layer_norm=False
+2022-02-24 16:03:47:INFO:	support_size=0
+2022-02-24 16:03:47:INFO:	inner_steps=1
+2022-02-24 16:03:47:INFO:	lr_inner=0.0001
+2022-02-24 16:03:47:INFO:	lr_meta=0.001
+2022-02-24 16:03:47:INFO:	n_epochs=5
+2022-02-24 16:03:47:INFO:	train_batch_size=20
+2022-02-24 16:03:47:INFO:	eval_batch_size=1
+2022-02-24 16:03:47:INFO:	lr=0.001
+2022-02-24 16:03:47:INFO:	weight_decay=0.01
+2022-02-24 16:03:47:INFO:	warmup_ratio=0.0
+2022-02-24 16:03:47:INFO:	max_grad_norm=5.0
+2022-02-24 16:03:47:INFO:	logging_steps=50
+2022-02-24 16:03:47:INFO:	seed=128
+2022-02-24 16:03:47:INFO:	gpu_id=2
+2022-02-24 16:03:47:INFO:	do_train=False
+2022-02-24 16:03:47:INFO:	do_eval=True
+2022-02-24 16:03:47:INFO:	train_data_fn='data/train_FD001.txt'
+2022-02-24 16:03:47:INFO:	test_data_fn='data/test_FD001.txt'
+2022-02-24 16:03:47:INFO:	target_ruls_fn='data/RUL_FD001.txt'
+2022-02-24 16:03:47:INFO:	device=device(type='cuda'))
+2022-02-24 16:03:47:INFO:Dump arguments to lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-02-24 16:03:47:INFO:==> Read data from data/train_FD001.txt...
+2022-02-24 16:03:47:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-02-24 16:03:47:INFO:==> Min_max normalization...
+2022-02-24 16:03:47:INFO:	The min value is [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-02-24 16:03:47:INFO:	The max value is [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-02-24 16:03:47:INFO:==> Read data from data/test_FD001.txt...
+2022-02-24 16:03:47:INFO:	The selected feature idxs are: 0, 1, 4, 5, 6, 9, 10, 11, 13, 14, 15, 16, 17, 19, 22, 23
+2022-02-24 16:03:47:INFO:==> Read RULsfrom data/RUL_FD001.txt...
+2022-02-24 16:03:47:INFO:	min_rul: 7, max_rul: 145
+2022-02-24 16:03:47:INFO:==> Input length ratio of the [TEST] data:
+2022-02-24 16:03:47:INFO:	min_ratio = 0.2067
+2022-02-24 16:03:47:INFO:	max_ratio = 0.9667
+2022-02-24 16:03:47:INFO:==> Min_max normalization...
+2022-02-24 16:03:47:INFO:	With given min value [-0.008700000122189522, -0.0006000000284984708, 641.2100219726562, 1571.0400390625, 1382.25, 549.8499755859375, 2387.89990234375, 9021.73046875, 46.849998474121094, 518.6900024414062, 2387.8798828125, 8099.93994140625, 8.324899673461914, 388.0, 38.13999938964844, 22.89419937133789]
+2022-02-24 16:03:47:INFO:	With given max value [0.008700000122189522, 0.0006000000284984708, 644.530029296875, 1616.9100341796875, 1441.489990234375, 556.0599975585938, 2388.56005859375, 9244.58984375, 48.529998779296875, 523.3800048828125, 2388.56005859375, 8293.7197265625, 8.584799766540527, 400.0, 39.43000030517578, 23.61840057373047]
+2022-02-24 16:03:47:INFO:=============== Scheme: Meta Evaluation By Loading Exist Model ===============
+2022-02-24 16:03:47:INFO:Load model from lstmmodels/data-1_n_epochs-5_aug-150_noise-0.01_supportSize-0_innerSteps-1_lrMeta-0.001_lrInner-0.0001_warmUp-0.0_seed-128...
+2022-02-24 16:03:51:INFO:==> Group parameters for optimization...
+2022-02-24 16:03:51:INFO:    Parameters to update are:
+2022-02-24 16:03:51:INFO:	lstmlayer1.weight_ih_l0
+2022-02-24 16:03:51:INFO:	lstmlayer1.weight_hh_l0
+2022-02-24 16:03:51:INFO:	lstmlayer1.bias_ih_l0
+2022-02-24 16:03:51:INFO:	lstmlayer1.bias_hh_l0
+2022-02-24 16:03:51:INFO:	lstmlayer2.weight_ih_l0
+2022-02-24 16:03:51:INFO:	lstmlayer2.weight_hh_l0
+2022-02-24 16:03:51:INFO:	lstmlayer2.bias_ih_l0
+2022-02-24 16:03:51:INFO:	lstmlayer2.bias_hh_l0
+2022-02-24 16:03:51:INFO:	nnlayer1.weight
+2022-02-24 16:03:51:INFO:	nnlayer1.bias
+2022-02-24 16:03:51:INFO:	nnlayer2.weight
+2022-02-24 16:03:51:INFO:	nnlayer2.bias
+2022-02-24 16:03:51:INFO:	nnlayer3.weight
+2022-02-24 16:03:51:INFO:	nnlayer3.bias
+2022-02-24 16:03:53:INFO:############### Compute RMSEs @ mode [TEST] ###############
+2022-02-24 16:03:53:INFO:	Num examples = 100
+2022-02-24 16:03:53:INFO:	RMSE = 13.5351
